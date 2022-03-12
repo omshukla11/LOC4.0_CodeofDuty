@@ -1,18 +1,18 @@
 import './App.css';
 import Signup from './Accounts/Signup';
 import Login from './Accounts/Login';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
-import { ThemeProvider as chatT  } from 'styled-components';
+import { ThemeProvider as chatT } from 'styled-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Contactus from './Accounts/Contactus';
 import Demo from './Accounts/demo';
 import SimpleForm from './Accounts/Chatbot';
-import { Button } from '@mui/material';
+import { Button, Card } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 // import CustomizedDialogs from './chatty';
 import PropTypes from 'prop-types';
@@ -28,6 +28,14 @@ import Draggable from 'react-draggable';
 import Feedback from './Accounts/Feedback';
 import VideoChat from './Accounts/VideoChat';
 import Video from './Accounts/Video';
+import NavBar from './Dashboard/Navbar';
+import Dashboard from './Dashboard/Dashboard';
+import Footer from './Dashboard/footer';
+import { SpeedDial, SpeedDialAction } from '@mui/material';
+import { SpeedDialIcon } from '@mui/material';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
+import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 function MyApp() {
@@ -52,6 +60,7 @@ function MyApp() {
     </Box>
   );
 }
+
 
 export default function ToggleColorMode() {
   const [mode, setMode] = React.useState('dark');
@@ -147,23 +156,7 @@ export default function ToggleColorMode() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <MyApp />
-        <Button  onClick={handleClickOpen}>
-          <img width='50' src='https://cdn-icons.flaticon.com/png/512/1734/premium/1734162.png?token=exp=1646899187~hmac=cd2c93da2c0b67670f14d0941c4a5ecb' alt='robot'></img>
-        </Button>
-        <BootstrapDialog
-          onClose={handleClose}
-          open={open}
-          PaperComponent={PaperComponent}
-          aria-labelledby="draggable-dialog-title"
 
-        >
-          <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-            Welcome to Chatty ;)
-          </DialogTitle>
-          {/* <chatT theme={chatTheme}> */}
-            <SimpleForm />
-          {/* </chatT> */}
-        </BootstrapDialog>
         <Router>
           <div className="App">
             <Switch>
@@ -189,19 +182,61 @@ export default function ToggleColorMode() {
                 <Contactus />
               </Route>
               <Route path="/Feedback">
-                <Feedback/>
+                <Feedback />
               </Route>
               <Route path="/videochat">
-                <VideoChat/>
+                <VideoChat />
               </Route>
               <Route path="/video">
-                <Video/>
+                <Video />
+              </Route>
+              <Route path="/dashboard">
+                <NavBar mode={mode} />
+                <SpeedDial
+                  ariaLabel="SpeedDial basic example"
+                  position= 'fixed'
+                  sx={{ position: 'absolute', bottom: 16, right: 16 }}
+                  icon={<SpeedDialIcon color='green'/>}
+
+                >
+                  <SpeedDialAction
+                    key='Bot'
+                    icon={<SmartToyIcon />}
+                    tooltipTitle='Bot'
+                    onClick={handleClickOpen}
+                  />
+                  <SpeedDialAction
+                    key='Video call'
+                    icon={<MissedVideoCallIcon />}
+                    tooltipTitle='Video call'
+                  />
+
+                  <SpeedDialAction
+                    key='Chat'
+                    icon={<MarkUnreadChatAltIcon />}
+                    tooltipTitle='Chat'
+                  />
+
+                </SpeedDial>
+                <BootstrapDialog
+                  onClose={handleClose}
+                  open={open}
+                  PaperComponent={PaperComponent}
+                  aria-labelledby="draggable-dialog-title"
+
+                >
+                  <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+                    Welcome to Chatty ;)
+                  </DialogTitle>
+                  <SimpleForm />
+                </BootstrapDialog>
+                <Dashboard />
               </Route>
             </Switch>
           </div>
         </Router>
-       
-       
+
+
 
       </ThemeProvider>
     </ColorModeContext.Provider>

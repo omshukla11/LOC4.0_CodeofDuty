@@ -229,7 +229,7 @@ const Feedback = () => {
                     Question and Answer
                     </Grid>
                     <Grid item xs={12}>
-                     <img src={feedback} style={{width:"100%"}}/> 
+                     <img src={feedback} style={{width:"100%",filter: 'invert(1)'}}/> 
                     </Grid>
                     <Grid item xs={12} >
                         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} style={{marginBottom:"2vh"}} sx={{position:"unset" , boxShadow:"none"}} >

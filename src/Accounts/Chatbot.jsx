@@ -58,10 +58,10 @@ Review.defaultProps = {
 const theme = {
     background: '#f5f8fb',
     fontFamily: 'Arial',
-    headerBgColor: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)',
+    headerBgColor: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)',
     headerFontColor: 'black',
     headerFontSize: '21px',
-    botBubbleColor: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)',
+    botBubbleColor: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)',
     botFontColor: '#fff',
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',
@@ -72,7 +72,7 @@ class SimpleForm extends Component {
             <ThemeProvider theme={theme}>
                 <ChatBot
                     headerTitle="Hello Guys 😁"
-                    speechSynthesis={{ enable: true, lang: 'en' }}
+                    // speechSynthesis={{ enable: true, lang: 'en' }}
                     steps={[
                         {
                             id: '1',

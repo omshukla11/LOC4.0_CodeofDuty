@@ -36,11 +36,19 @@ import { SpeedDialIcon } from '@mui/material';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
+import { useEffect } from 'react';
+import Aos from "aos";
+import "aos/dist/aos.css";
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
+
 
 function MyApp() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
+  useEffect(() => {
+    Aos.init({ duration: 500, once: false });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -181,6 +189,8 @@ export default function ToggleColorMode() {
                 <Contactus />
               </Route>
               <Route path="/Feedback">
+                <NavBar mode={mode} />
+
                 <Feedback />
               </Route>
               <Route path="/videochat">
@@ -193,9 +203,9 @@ export default function ToggleColorMode() {
                 <NavBar mode={mode} />
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
-                  position= 'fixed'
+                  position='fixed'
                   sx={{ position: 'absolute', bottom: 16, right: 16 }}
-                  icon={<SpeedDialIcon color='green'/>}
+                  icon={<SpeedDialIcon color='success' />}
 
                 >
                   <SpeedDialAction

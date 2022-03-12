@@ -4,20 +4,20 @@ const Publicity = () => {
   return (
     <div style={{ padding: "5% 10%" }}>
       <Grid container spacing={2} style={{ padding: 0 }}>
-        <Grid item xs={4}>
-          <p className="fullPub">
+        <Grid item xs={12} md={4}>
+          <p className="fullPub" data-aos="fade-right">
             <span className="pubNumber">200k+</span>
             <span className="pubData">&nbsp;Users</span>
             <br />
-            <span className="pubdummy">
+            <span className="pubdummy" >
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500
             </span>
           </p>
         </Grid>
-        <Grid item xs={4}>
-          <p className="fullPub">
+        <Grid item xs={12} md={4}>
+          <p className="fullPub" data-aos="fade-right">
             <span className="pubNumber">150+</span>
             <span className="pubData">&nbsp;Courses</span>
             <br />
@@ -28,8 +28,8 @@ const Publicity = () => {
             </span>
           </p>
         </Grid>
-        <Grid item xs={4}>
-          <p className="fullPub">
+        <Grid item xs={12} md={4}>
+          <p className="fullPub" data-aos="fade-right">
             <span className="pubNumber">50+</span>
             <span className="pubData">&nbsp;Mentors</span>
             <br />

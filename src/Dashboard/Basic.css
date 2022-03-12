@@ -127,3 +127,37 @@
     height: 300px;
   }
   
+/* main page */
+.home {
+  font-family: "Libre Baskerville", serif;
+}
+
+/* quality */
+.cat_link {
+  text-decoration: none;
+}
+
+.about_quality {
+  margin: 150px 0%;
+  padding: 4%;
+  background-color: #116530;
+}
+.about_quality p {
+  font-size: 3.5rem;
+  color: #ffec1d;
+}
+.about_quality h3 {
+  font-size: 1.4rem;
+  font-family: "Source Serif 4", sans-serif;
+  color: #ffec1d;
+  padding-bottom: 10px;
+}
+.about_quality span {
+  font-size: 0.8rem;
+  color: #ffec1d;
+}
+.cat_link p {
+  /* color: #116530; */
+  font-size: 1.1rem;
+  font-weight: 600;
+}

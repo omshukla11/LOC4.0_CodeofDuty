@@ -11,7 +11,8 @@ import logo from "../Images/running.png";
 import { Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 const pages = [
     "Dashboard",
@@ -67,11 +68,8 @@ const NavBar = (mode) => {
             <List>
                 {pages.map((text, index) => (
                     <Link
-                        key={index}
                         style={{ textDecoration: "none" }}
-                        to={text}
-                        spy={true}
-                        smooth={true}
+
                     // to={`/${text.toLowerCase().replace(" ", "-")}`}
                     >
                         <ListItem button key={text}>
@@ -95,6 +93,7 @@ const NavBar = (mode) => {
                             noWrap
                             component="div"
                             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                            // style={{color:'green'}}
                         >
                             {mode.mode == 'dark' ?
                                 <img src={logo} alt="logo" width="50" style={{ filter: 'invert(1)' }}></img> :
@@ -135,13 +134,13 @@ const NavBar = (mode) => {
                             alignContent="center"
                         >
                             {pages.map((page, index) => (
-                                <Link key={index} to={page} spy={true} smooth={true}>
+                                <Link to={page} style={{textDecoration:"none"}}>
                                     <Button
                                         key={page}
                                         style={{ fontSize: "1.2rem" }}
                                         sx={{
                                             my: 2,
-                                            //   color: "white",
+                                            //   color: "green",
                                             display: "block",
                                             paddingInline: "15px",
                                         }}

@@ -11,7 +11,7 @@ const Publicity = () => {
             <CountUp end={200} duration={4}/>k+</span>
             <span className="pubData">&nbsp;Users</span>
             <br />
-            <span className="pubdummy">
+            <span className="pubdummy" >
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500

@@ -39,9 +39,14 @@ import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
 import Events from './Accounts/Events';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
+
 function MyApp() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
+  useEffect(() => {
+    Aos.init({ duration: 500, once: false });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -179,6 +184,8 @@ export default function ToggleColorMode() {
                 <CustomizedDialogs />
               </Route> */}
               <Route path="/Feedback">
+                <NavBar mode={mode} />
+
                 <Feedback />
               </Route>
               <Route path="/videochat">
@@ -194,7 +201,7 @@ export default function ToggleColorMode() {
                 <NavBar mode={mode} />
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
-                  position= 'fixed'
+                  position='fixed'
                   sx={{ position: 'absolute', bottom: 16, right: 16 }}
                   icon={<SpeedDialIcon color='green'/>}
                 >

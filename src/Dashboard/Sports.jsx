@@ -5,74 +5,78 @@ import { Link } from "react-router-dom";
 import { RiPlantFill } from "react-icons/ri";
 import { MdOutlineEmojiNature } from "react-icons/md";
 import { GiSlicedBread } from "react-icons/gi";
-import "./home.css";
+import cricket from '../Images/cricket.png'
+import boxing from '../Images/boxing.png'
+import yoga from '../Images/yoga.png'
+import gym from '../Images/gym.png'
+import "./Basic.css";
 
 import { Sports } from "@mui/icons-material";
 const Sport = () => {
   return (
     <div className="DailyStap" >
       <center>
-        <h2>Your Daily Staples</h2>
+        <h2>Workout Plans</h2>
         <br />
       </center>
-      <Grid container spacing={2}>
-        <Grid item md={2} sm={6} xs={6}>
-          <Link to={`category/Daily essentials`} className="cat_link">
+      <Grid container spacing={2} data-aos="fade-up">
+        <Grid item md={3} sm={6} xs={6}>
+          <Link to={`/events`} className="cat_link">
             <Paper
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
             >
               <center>
-                <img width="150" height="150" src={wheat} alt="wheat"></img>
+                <img width="150" height="150" src={gym} alt="wheat"></img>
               </center>
-              <p> &nbsp; Atta & Flour</p>
+              <p> &nbsp; Short Workout </p>
             </Paper>
           </Link>
         </Grid>
-        <Grid item md={2} sm={6} xs={6}>
-          <Link to={`category/Daily essentials`} className="cat_link">
+        <Grid item md={3} sm={6} xs={6}>
+          <Link to={`/events`} className="cat_link">
             <Paper
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
             >
               <center>
-                <img width="150" height="150" src={oil} alt="oil"></img>
+                <img width="150" height="150" src={yoga} alt="oil"></img>
               </center>
-              <p>Cooking oils & Ghee</p>
+              <p>Stretching</p>
             </Paper>
           </Link>
         </Grid>
-        <Grid item md={2} sm={6} xs={6}>
-          <Link to={`category/Daily essentials`} className="cat_link">
+        <Grid item md={3} sm={6} xs={6}>
+          <Link to={`/events`} className="cat_link">
             <Paper
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
             >
               <center>
-                <img width="150" height="150" src={peas} alt="wheat"></img>
+                <img width="150" height="150" src={boxing} alt="wheat"></img>
               </center>
-              <p> &nbsp; Dals and Pulses</p>
+              <p> Boxing</p>
             </Paper>
           </Link>
         </Grid>
-        <Grid item md={2} sm={6} xs={6}>
-          <Link to={`category/Healthy Food`} className="cat_link">
+        <Grid item md={3} sm={6} xs={6}>
+          <Link to={`/events`} className="cat_link">
             <Paper
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
             >
               <center>
-                <img width="150" height="150" src={dates} alt="wheat"></img>
+                <img width="150" height="150" src={cricket} alt="wheat"></img>
               </center>
-              <p> &nbsp; Dry Fruits</p>
+              <p> Cricket Routines</p>
             </Paper>
           </Link>
         </Grid>
-        <Grid item md={2} sm={6} xs={6}>
+        {/* <Grid item md={2} sm={6} xs={6}>
           <Link to={`category/Indian Grocery`} className="cat_link">
             <Paper
               whileHover={{ scale: 1.1 }}
@@ -85,8 +89,8 @@ const Sport = () => {
               <p> &nbsp; Indian Spices</p>
             </Paper>
           </Link>
-        </Grid>
-        <Grid item md={2} sm={6} xs={6}>
+        </Grid> */}
+        {/* <Grid item md={2} sm={6} xs={6}>
           <Link to={`category/Daily essentials`} className="cat_link">
             <Paper
               whileHover={{ scale: 1.1 }}
@@ -99,74 +103,10 @@ const Sport = () => {
               <p> &nbsp; Essentials</p>
             </Paper>
           </Link>
-        </Grid>
+        </Grid> */}
       </Grid>
 
-      <div className="about_quality">
-        <center>
-          <Grid container spacing={3}>
-            <Grid
-              component={motion.div}
-              initial={{ x: "-100vh" }}
-              animate={{ x: 0 }}
-              item
-              xs={4}
-            >
-              <p>
-                <RiPlantFill />
-              </p>
-              <motion.h3
-                whileHover={{ textDecoration: "underline", scale: 1.2 }}
-              >
-                100% ORGANIC
-              </motion.h3>
-              <span style={{ padding: "5px" }}>
-                The more natural or eco-based products you can introduce into
-                your beauty regimen, the more beneficial it is for your skin.
-              </span>
-            </Grid>
-            <Grid
-              component={motion.div}
-              initial={{ x: "-100vh" }}
-              animate={{ x: 0 }}
-              item
-              xs={4}
-            >
-              <p>
-                <MdOutlineEmojiNature />
-              </p>
-              <motion.h3
-                whileHover={{ textDecoration: "underline", scale: 1.2 }}
-              >
-                NATURAL PROCESS
-              </motion.h3>
-              <span>
-                You are what you eat, so don’t be fast, cheap, easy, or fake.
-              </span>
-            </Grid>
-            <Grid
-              component={motion.div}
-              initial={{ x: "-100vh" }}
-              animate={{ x: 0 }}
-              item
-              xs={4}
-            >
-              <p>
-                <GiSlicedBread />
-              </p>
-              <motion.h3
-                whileHover={{ textDecoration: "underline", scale: 1.2 }}
-              >
-                HOMEGROWN GOODNESS
-              </motion.h3>
-              <span>
-                A society grows great when old men plant trees whose shade they
-                know they shall never sit in.
-              </span>
-            </Grid>
-          </Grid>
-        </center>
-      </div>
+
     </div>
   );
 };

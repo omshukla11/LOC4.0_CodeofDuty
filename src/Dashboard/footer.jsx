@@ -14,7 +14,7 @@ const Footer = (mode) => {
         "Contact Us"
     ];
     return (
-        <Container
+        <div
             style={{
                 paddingTop: "20px",
                 // color: "white",
@@ -113,7 +113,7 @@ const Footer = (mode) => {
                     Made with <span style={{ color: "red" }}>❤</span> from Skills Up
                 </h4>
             </center>
-        </Container>
+        </div>
     );
 };
 

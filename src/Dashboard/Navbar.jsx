@@ -85,10 +85,10 @@ const NavBar = (mode) => {
 
     return (
         <ElevationScroll>
-            <AppBar position="sticky" color='inherit'>
+            <AppBar position="sticky" color='inherit' style={{transform:'translateY(-30px)'}}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <Typography
+                        {/* <Typography
                             variant="h6"
                             noWrap
                             component="div"
@@ -99,7 +99,7 @@ const NavBar = (mode) => {
                                 <img src={logo} alt="logo" width="50" style={{ filter: 'invert(1)' }}></img> :
                                 <img src={logo} alt="logo" width="50"></img>
                             }
-                        </Typography>
+                        </Typography> */}
 
                         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                             <React.Fragment key={anchor}>

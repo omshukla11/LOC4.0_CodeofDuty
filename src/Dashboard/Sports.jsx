@@ -11,7 +11,6 @@ import yoga from '../Images/yoga.png'
 import gym from '../Images/gym.png'
 import "./Basic.css";
 
-import { Sports } from "@mui/icons-material";
 const Sport = () => {
   return (
     <div className="DailyStap" >
@@ -26,6 +25,7 @@ const Sport = () => {
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
+              style={{padding:'5%'}}
             >
               <center>
                 <img width="150" height="150" src={gym} alt="wheat"></img>
@@ -40,6 +40,8 @@ const Sport = () => {
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
+              style={{padding:'5%'}}
+
             >
               <center>
                 <img width="150" height="150" src={yoga} alt="oil"></img>
@@ -54,6 +56,8 @@ const Sport = () => {
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
+              style={{padding:'5%'}}
+              
             >
               <center>
                 <img width="150" height="150" src={boxing} alt="wheat"></img>
@@ -68,6 +72,8 @@ const Sport = () => {
               whileHover={{ scale: 1.1 }}
               component={motion.div}
               elevation={3}
+              style={{padding:'5%'}}
+
             >
               <center>
                 <img width="150" height="150" src={cricket} alt="wheat"></img>

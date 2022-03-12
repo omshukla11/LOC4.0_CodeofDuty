@@ -53,11 +53,12 @@ function MyApp() {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'right',
+        justifyContent: 'right',
         bgcolor: 'background.default',
         color: 'text.primary',
         borderRadius: 1,
+        padding:'0%',
         p: 3,
       }}
       fullWidth
@@ -163,6 +164,7 @@ export default function ToggleColorMode() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+      
         <MyApp />
         <Router>
           <div className="App">
@@ -179,15 +181,17 @@ export default function ToggleColorMode() {
               <Route path="/demo">
                 <Demo />
               </Route>
-              <Route path="/contactus">
+              <Route path="/contact us">
+                <NavBar mode={mode} />
+
                 <Contactus />
               </Route>
               {/* <Route path='/chat'>
                 <CustomizedDialogs />
               </Route> */}
-              <Route path="/ContactUs">
+              {/* <Route path="/ContactUs">
                 <Contactus />
-              </Route>
+              </Route> */}
               <Route path="/Feedback">
                 <NavBar mode={mode} />
 
@@ -201,11 +205,13 @@ export default function ToggleColorMode() {
               </Route>
               <Route path="/dashboard">
                 <NavBar mode={mode} />
+                <Dashboard />
+
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
-                  position='fixed'
-                  sx={{ position: 'absolute', bottom: 16, right: 16 }}
-                  icon={<SpeedDialIcon color='success' />}
+                 
+                  sx={{ position: 'fixed', bottom: 16, right: 16 }}
+                  icon={<SpeedDialIcon   />}
 
                 >
                   <SpeedDialAction
@@ -239,7 +245,6 @@ export default function ToggleColorMode() {
                   </DialogTitle>
                   <SimpleForm />
                 </BootstrapDialog>
-                <Dashboard />
               </Route>
             </Switch>
           </div>

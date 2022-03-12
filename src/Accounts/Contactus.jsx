@@ -43,7 +43,7 @@ const Contactus = () => {
   });
   const classes = useStyles();
   return (
-    <div>
+    <div style={{transform:'translateY(-32px)'}}>
     <Card style={{boxShadow:"none",border:"none"}}>
     <Grid container spacing={2}>
       <Grid item xs={1}></Grid>
@@ -187,7 +187,7 @@ const Contactus = () => {
                         backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         //backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550"}}
-                        >Web Design</Button>
+                        >Yoga</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
@@ -197,7 +197,7 @@ const Contactus = () => {
                           backgroundColor:"#f2cf07",
                         backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
-                        >React Js & Native</Button>
+                        >Cricket</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
@@ -207,7 +207,7 @@ const Contactus = () => {
                           backgroundColor:"#f2cf07",
                         backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
-                        >Django</Button>
+                        >BasketBall</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
@@ -217,7 +217,7 @@ const Contactus = () => {
                           backgroundColor:"#f2cf07",
                         backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
-                        >Mern Stack</Button>
+                        >Fitness Routines</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
@@ -226,7 +226,7 @@ const Contactus = () => {
                           backgroundColor:"#f2cf07",
                           backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
-                        >Flutter</Button>
+                        >Workout Routines</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
@@ -235,7 +235,7 @@ const Contactus = () => {
                           backgroundColor:"#f2cf07",
                         backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
-                        >Kotlin</Button>
+                        >Fitness</Button>
                         </Grid>
                       </Grid>
                     </Grid>

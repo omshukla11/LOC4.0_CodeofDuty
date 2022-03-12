@@ -47,22 +47,22 @@ import Swal from "sweetalert2";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
-import {useFormik} from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Link } from "react-router-dom";
 import { FormatAlignLeftSharp } from "@mui/icons-material";
 const validationSchema = yup.object({
     email: yup
-      .string('Enter your Email')
-      .email('Enter a valid email')
-      .required('Email is required'),
+        .string('Enter your Email')
+        .email('Enter a valid email')
+        .required('Email is required'),
     password: yup
-      .string('Enter your password')
-      .min(8, 'Password is too short')
-      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Password nust conatin minimum eight characters, at least one letter, one number and one special character are required')
-      .required('Password is required'),
-    
-  });
+        .string('Enter your password')
+        .min(8, 'Password is too short')
+        .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Password nust conatin minimum eight characters, at least one letter, one number and one special character are required')
+        .required('Password is required'),
+
+});
 /*function Copyright(props) {
     return (
         <Typography
@@ -105,102 +105,124 @@ const theme = createTheme();
 const Login = () => {
     const formik = useFormik({
         initialValues: {
-          email:'',
-          password:'',
+            email: '',
+            password: '',
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-          console.log(values);
-          //alert(JSON.stringify(values.name, null, 2));
-        },
-      });
-      const [passwordShow, setpassword] = React.useState(false);
-    const [passwordShow2, setpassword2] = React.useState(false);
-      return (
-    <div>
-    <Card>
-    <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                <Grid container>
-                <Grid item xs={12} style={{padding:"5vh" }}>     
-                <form onSubmit={formik.handleSubmit} autoComplete="off" style={{width:"100%"}}> 
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} sx={{textAlign:"left" ,fontSize:"1.6rem" , fontWeight:"750"}}>
-                     Login
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
-                   
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
-                    <TextField
-                    fullWidth
-                    id="email"
-                    name="email"
-                    label="Email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    helperText={formik.touched.email && formik.errors.email}
-                    />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
-                    <Grid item xs={12} sm={12} md={12}>
-                            <TextField
-                             fullWidth
-                             id="password"
-                             name="password"
-                             label="Password"
-                             type={passwordShow ? "text" : "password"}
-                             value={formik.values.password}
-                             onChange={formik.handleChange}
-                             error={formik.touched.password && Boolean(formik.errors.password)}
-                             helperText={formik.touched.password && formik.errors.password}
-                             InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onMouseDown={(e) => e.preventDefault()}
-                                            edge="end"
-                                            onClick={() => {
-                                                setpassword(!passwordShow);
-                                            }}
-                                        >
-                                            {passwordShow ? (
-                                                <VisibilityOff />
-                                            ) : (
-                                                <Visibility />
-                                            )}
-                                        </IconButton>
-                                    </InputAdornment>
-                                ),
-                            }}/>
-                    </Grid>
-                    
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
-                    <Button variant="contained" fullWidth type="submit"
-                    sx={{backgroundColor:"#f2cf07",
-                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)",fontSize:"1.2rem" , fontWeight:"600"}}>
-                      Submit
-                    </Button>
-                    </Grid>
-                    <Grid item xs={12} sx={{fontSize:"1.2rem" , fontWeight:"550"}}>
-                        <Link to='/signup' style={{textDecoration:"none" , color:"#f2cf07"}}> Don't have an account ? Sign Up</Link>
-                    </Grid>
-                  </Grid>      
-                </form>
-                </Grid> 
-                </Grid>
-            </Grid>
-            </Grid>
-    </Card>
-    </div>
-      )}
+            console.log(values);
+            var axios = require('axios');
+            var FormData = require('form-data');
+            var data = new FormData();
+            data.append('email', values.email);
+            data.append('password', values.password);
 
-    {/*// definition
+            var config = {
+                method: 'post',
+                url: 'http://127.0.0.1:8000/accounts/login/',
+                headers: {},
+                data: data
+            };
+
+            axios(config)
+                .then(function (response) {
+                    console.log(JSON.stringify(response.data));
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+    });
+    const [passwordShow, setpassword] = React.useState(false);
+    const [passwordShow2, setpassword2] = React.useState(false);
+    return (
+        <div>
+            <Card>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={6}>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Grid container>
+                            <Grid item xs={12} style={{ padding: "5vh" }}>
+                                <form onSubmit={formik.handleSubmit} autoComplete="off" style={{ width: "100%" }}>
+                                    <Grid container spacing={3}>
+                                        <Grid item xs={12} sx={{ textAlign: "left", fontSize: "1.6rem", fontWeight: "750" }}>
+                                            Login
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12}>
+
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12}>
+                                            <TextField
+                                                fullWidth
+                                                id="email"
+                                                name="email"
+                                                label="Email"
+                                                value={formik.values.email}
+                                                onChange={formik.handleChange}
+                                                error={formik.touched.email && Boolean(formik.errors.email)}
+                                                helperText={formik.touched.email && formik.errors.email}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12}>
+                                            <Grid item xs={12} sm={12} md={12}>
+                                                <TextField
+                                                    fullWidth
+                                                    id="password"
+                                                    name="password"
+                                                    label="Password"
+                                                    type={passwordShow ? "text" : "password"}
+                                                    value={formik.values.password}
+                                                    onChange={formik.handleChange}
+                                                    error={formik.touched.password && Boolean(formik.errors.password)}
+                                                    helperText={formik.touched.password && formik.errors.password}
+                                                    InputProps={{
+                                                        endAdornment: (
+                                                            <InputAdornment position="end">
+                                                                <IconButton
+                                                                    aria-label="toggle password visibility"
+                                                                    onMouseDown={(e) => e.preventDefault()}
+                                                                    edge="end"
+                                                                    onClick={() => {
+                                                                        setpassword(!passwordShow);
+                                                                    }}
+                                                                >
+                                                                    {passwordShow ? (
+                                                                        <VisibilityOff />
+                                                                    ) : (
+                                                                        <Visibility />
+                                                                    )}
+                                                                </IconButton>
+                                                            </InputAdornment>
+                                                        ),
+                                                    }} />
+                                            </Grid>
+
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12}>
+                                            <Button variant="contained" fullWidth type="submit"
+                                                sx={{
+                                                    backgroundColor: "#f2cf07",
+                                                    backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
+                                                }}>
+                                                Submit
+                                            </Button>
+                                        </Grid>
+                                        <Grid item xs={12} sx={{ fontSize: "1.2rem", fontWeight: "550" }}>
+                                            <Link to='/signup' style={{ textDecoration: "none", color: "#f2cf07" }}> Don't have an account ? Sign Up</Link>
+                                        </Grid>
+                                    </Grid>
+                                </form>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Card>
+        </div>
+    )
+}
+
+{/*// definition
     const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
             width: drawerWidth,
@@ -724,6 +746,6 @@ const Login = () => {
             </Grid>
 
                                                     </ThemeProvider>*/}
-                    
+
 
 export default Login;

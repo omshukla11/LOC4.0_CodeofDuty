@@ -10,7 +10,6 @@ import Sport from './Sports'
 const Dashboard = () => {
     return (
         <Card style={{ transform: 'translateY(-32px)' }} >
-
             <Hero />
             <Specs />
             <Sport />

@@ -41,6 +41,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
 import Recipes from './Accounts/Recipes';
+import Events from './Accounts/Events';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
@@ -188,6 +189,10 @@ export default function ToggleColorMode() {
 
                 <Contactus />
               </Route>
+              <Route path="/Events">
+              <NavBar mode={mode}/>
+                <Events/>
+              </Route>
               {/* <Route path='/chat'>
                 <CustomizedDialogs />
               </Route> */}
@@ -260,3 +265,7 @@ export default function ToggleColorMode() {
     </ColorModeContext.Provider>
   );
 }
+
+	
+	
+	

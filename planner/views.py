@@ -28,11 +28,11 @@ class UserProgramView(APIView):
     def post(self,request,pk):
         user = User.objects.get(email = request.user)
         try:
-            UserProgram.objects.get(user_id=user.id,program_id=pk)
+            UserProgram.objects.get(user_id=user,program_id=pk)
         except UserProgram.DoesNotExist:
             content = {'detail': 'User already selected this Program'}
             return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
-        product_user = UserProgram(user_id=user.id,program_id=pk)
+        product_user = UserProgram(user_id=user,program_id=pk)
         serializer = UserProgramSerializer(product_user,data=request.data)
         print(serializer.data)
         if serializer.is_valid():

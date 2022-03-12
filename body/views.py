@@ -14,17 +14,15 @@ from rest_framework.decorators import api_view
 
 class MuscleGroupView(generics.ListAPIView):
     serializer_class = MuscleGroupSerializer
-    def list(self,request):
-        queryset = MuscleGroup.objects.all()
+    def list(self,request,mg_id):
+        queryset = MuscleGroup.objects.filter(id=mg_id)
         serializer = MuscleGroupSerializer(queryset, many = True)
-        print(serializer.data[0])
         return JsonResponse(serializer.data,safe = False, status = status.HTTP_200_OK)
 
 
 class MuscleView(generics.ListAPIView):
     serializer_class = MuscleSerializer
-    def list(self,request):
-        queryset = Muscle.objects.all()
+    def list(self,request,ms_id):
+        queryset = Muscle.objects.filter(id=ms_id)
         serializer = MuscleSerializer(queryset, many = True)
-        print(serializer.data[0])
         return JsonResponse(serializer.data,safe = False, status = status.HTTP_200_OK)

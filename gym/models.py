@@ -13,9 +13,10 @@ class Exercise(models.Model): #exercise detail
 	primary_muscles = models.ForeignKey('body.Muscle', related_name = 'primary_muscles',on_delete=models.CASCADE)
 	secondary_muscles = models.ForeignKey('body.Muscle', related_name = 'secondary_muscles',on_delete=models.CASCADE)
 	url = models.URLField(null=True,blank=True)
+	completed = models.BooleanField(default=False)
 	# Methods
 	def __str__(self):
-		return str(self.primary_muscles.all().first()) + " - " + self.name
+		return str(self.primary_muscles) + " - " + self.name
 
 
 class ExerciseSet(models.Model): #the variations in exercis

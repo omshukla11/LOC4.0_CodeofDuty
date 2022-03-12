@@ -22,9 +22,19 @@ class Program(models.Model): #categories boxing,cricket,yoga,gym
 	def __str__(self):
 		return self.name
 
+class UserProgram(models.Model):
+	user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+	program_id = models.ForeignKey(Program,on_delete=models.CASCADE)
+	start_date = models.DateTimeField(null = False, blank = False, auto_now_add=True)
+	end_date = models.DateTimeField(null = False, blank = False)
+	complete = models.BooleanField(default=False)
+	exercise_in_program = models.IntegerField(default=0)
+
+	def __str__(self) -> str:
+		return self.user_id.email + " " + self.program_id.name
 
 class ProgramPhase(models.Model): #if selected cricket toh idhr different programs in cricket
-	program_id = models.ForeignKey(Program,on_delete=models.CASCADE)
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	order = models.PositiveIntegerField(blank = False, null = False)
 	weeks_duration = models.PositiveIntegerField(blank = False, null = False)
 	workout = models.ForeignKey('planner.Workout', null = True, on_delete = models.SET_NULL)
@@ -37,6 +47,7 @@ class ProgramPhase(models.Model): #if selected cricket toh idhr different progra
 
 
 class Workout(models.Model): #on program in cricket ka workout ka name nad image
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	image = models.ImageField(upload_to = 'planner/workout/', null = False, blank = False)
 	# day = models.ManyToManyField('planner.WorkoutDay')
@@ -52,7 +63,7 @@ class WorkoutDay(models.Model): #days of the week for that workout
 	DAY = (('MO', 'Monday'), ('TU', 'Tuesday'), ('WE', 'Wednesday'), ('TH', 'Thursday'), ('FR', 'Friday'),
 	('SA', 'Saturday'), ('SU', 'Sunday'),)
 
-	# workout = models.ForeignKey(Workout,on_delete=models.CASCADE)
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	day_of_week = models.CharField(max_length = 2, choices = DAY, default = 'MO')
 	session = models.ForeignKey('planner.WorkoutSession', null = False, on_delete = models.CASCADE)
 
@@ -62,7 +73,7 @@ class WorkoutDay(models.Model): #days of the week for that workout
 
 
 class WorkoutSession(models.Model): #per workout layout
-	
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	summary = models.TextField(null = False, blank = True, max_length = 1000)
 	recommendations = models.TextField(null = False, blank = True, max_length = 1000)
@@ -74,10 +85,3 @@ class WorkoutSession(models.Model): #per workout layout
 		return self.name
 
 
-class UserProgram(models.Model):
-	user_id = models.ForeignKey(User,on_delete=models.CASCADE)
-	program_id = models.ForeignKey(Program,on_delete=models.CASCADE)
-	start_date = models.DateTimeField(null = False, blank = False, auto_now_add=True)
-	end_date = models.DateTimeField(null = False, blank = False)
-	complete = models.BooleanField(default=False)
-	exercise_in_program = models.IntegerField(default=0)

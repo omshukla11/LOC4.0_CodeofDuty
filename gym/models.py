@@ -1,9 +1,11 @@
 from django.db import models
+from planner.models import *
 
 # Create your models here.
 
 class Exercise(models.Model): #exercise detail
 	# Attributes
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	workout_session = models.ForeignKey('planner.WorkoutSession',on_delete=models.CASCADE)
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	description = models.TextField(null = False, blank = True, max_length = 1000)
@@ -21,6 +23,7 @@ class Exercise(models.Model): #exercise detail
 
 class ExerciseSet(models.Model): #the variations in exercis
 	# Attributes
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	exercise = models.ForeignKey('gym.Exercise', null = False, blank = False,on_delete=models.CASCADE)
 	sets = models.ForeignKey('gym.Set', related_name = 'sets',on_delete=models.CASCADE)
 	number_of_sets = models.IntegerField(null = False, blank = False, default = 3)
@@ -35,6 +38,7 @@ class Set(models.Model):
 	REPS_UNIT = (('RE', 'Reps'), ('MI', 'Minutes'), ('SE', 'Seconds'), ('KM', 'kilometers'), ('UF', 'Until Failure'),)
 	WEIGHT_UNIT = (('KG', 'Kg.'), ('BW', 'Body Weight'), ('KH', 'Kms per hour'),)
 	# Attributes
+	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
 	reps = models.PositiveIntegerField(null = False, blank = False, default = 0)
 	reps_unit = models.CharField(max_length = 2, choices = REPS_UNIT, default = 'RE')
 	weight = models.DecimalField(max_digits = 5, decimal_places = 2)

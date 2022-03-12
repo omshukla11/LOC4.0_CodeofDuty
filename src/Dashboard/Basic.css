@@ -100,33 +100,32 @@
   border-left: 2px #f2cf07 solid;
 }
 
-
 /* hero */
 .heroHead {
-    font-family: "Mochiy Pop P One", sans-serif;
-    font-size: 2.5rem;
-    padding: 20px 20%;
-  }
-  
-  .heroFeature,
-  .heroFeature2 {
-    padding: 0% 1%;
-    font-family: "Ubuntu", sans-serif;
-  }
-  
-  .heroFeature {
-    border-right: 2px solid black;
-  }
-  
-  .LinkTag {
-    text-decoration: none;
-  }
-  
-  .heroImage {
-    width: 350px;
-    height: 300px;
-  }
-  
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 2.5rem;
+  padding: 20px 20%;
+}
+
+.heroFeature,
+.heroFeature2 {
+  padding: 0% 1%;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.heroFeature {
+  border-right: 2px solid black;
+}
+
+.LinkTag {
+  text-decoration: none;
+}
+
+.heroImage {
+  width: 350px;
+  height: 300px;
+}
+
 /* main page */
 .home {
   font-family: "Libre Baskerville", serif;
@@ -162,6 +161,14 @@
   font-weight: 600;
 }
 
-.MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab{
- background-color: red !important;
+.MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab {
+  background-color: red !important;
+}
+
+.heroHeadMain{
+  font-size: 4rem;
+  font-family: "Libre Baskerville", serif;
+  text-shadow: 0 0 8px rgb(255,255,255);
+  position: relative;
+  top: 200px;
 }

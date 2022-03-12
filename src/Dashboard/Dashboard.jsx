@@ -13,8 +13,8 @@ const Dashboard2 = () => {
             <Hero />
             <Specs />
             <Sport />
-            <Examples />
             <Publicity />
+            <Examples />
             <Footer />
         </Card >
     )

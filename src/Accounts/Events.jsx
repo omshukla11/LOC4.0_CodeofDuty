@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { url } from '../url'
 import {Grid , Card} from '@mui/material'
 import './accounts.css';
 import './card.scss';
@@ -6,6 +8,7 @@ import axios from 'axios'
 import { url } from '../url'
 import VideoPlayer from 'react-player'
 import ReactPlayer from 'react-player';
+
 const Events = () => {
     {/* const [arr, setarr] = useState([]);
     useEffect(() => {
@@ -28,29 +31,22 @@ const Events = () => {
                 </Grid>
                 <Grid container>
                 <Grid item xs={12} md={3} sm={6}>
-                <Card style={{boxShadow:"none"}}>
-              <div class="box box-2">
-                <div class="first">
-                   
-                </div>
-               <div class="second">
-                  <p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
-                   <p><a href="#">Find out more</a></p>
-               </div>
-               </div>
-        </Card>
+                {arr.map((x,index) => {
+                return (
                     <Card sx={{boxShadow:"none"}}>
-                    <div class="card">
-		            <figure class="card__thumb">
-			        <img src="https://source.unsplash.com/75S9fpDJVdo/300x510" alt="Picture by Kyle Cottrell" class="card__image" />
-			        <figcaption class="card__caption">
-				    <h2 class="card__title">NASA Has Found Hundreds Of Potential New Planets</h2>
-				    <p class="card__snippet">NASA released a list of 219 new “planet candidates” discovered by the Kepler space telescope, 10 of which are similar to Earth’s size and may be habitable by other life forms.</p>
-				    <a href="" class="card__button">Read more</a>
-			        </figcaption>
-		            </figure>
-	                </div>
+                    <div class="card">{x.id}
+		                <figure class="card__thumb">
+			              <img src={url+x.image} alt="Picture by Kyle Cottrell" class="card__image" />
+			              <figcaption class="card__caption">
+				            <h2 class="card__title">NASA Has Found Hundreds Of Potential New Planets</h2>
+				            <p class="card__snippet">NASA released a list of 219 new “planet candidates” discovered by the Kepler space telescope, 10 of which are similar to Earth’s size and may be habitable by other life forms.</p>
+				            <a href="" class="card__button">Read more</a>
+			              </figcaption>
+		                </figure>
+	                  </div>
                     </Card>
+                    );
+                })};
                 </Grid>
                 <Grid item xs={12} md={3} sm={6}>
                 <Card sx={{ padding:"2px"}}>

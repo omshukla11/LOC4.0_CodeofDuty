@@ -8,7 +8,6 @@ import Specs from './Specs'
 const Dashboard = () => {
     return (
         <Card>
-        
             <Hero />
             <Publicity/>
             <Specs/>

@@ -36,6 +36,7 @@ import { SpeedDialIcon } from '@mui/material';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
+import Events from './Accounts/Events';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 function MyApp() {
@@ -177,9 +178,6 @@ export default function ToggleColorMode() {
               {/* <Route path='/chat'>
                 <CustomizedDialogs />
               </Route> */}
-              <Route path="/ContactUs">
-                <Contactus />
-              </Route>
               <Route path="/Feedback">
                 <Feedback />
               </Route>
@@ -189,6 +187,9 @@ export default function ToggleColorMode() {
               <Route path="/video">
                 <Video />
               </Route>
+              <Route path="/events">
+                <Events/>
+              </Route>
               <Route path="/dashboard">
                 <NavBar mode={mode} />
                 <SpeedDial
@@ -196,7 +197,6 @@ export default function ToggleColorMode() {
                   position= 'fixed'
                   sx={{ position: 'absolute', bottom: 16, right: 16 }}
                   icon={<SpeedDialIcon color='green'/>}
-
                 >
                   <SpeedDialAction
                     key='Bot'

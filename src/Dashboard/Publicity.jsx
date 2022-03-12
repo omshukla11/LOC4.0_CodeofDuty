@@ -5,7 +5,7 @@ const Publicity = () => {
   return (
     <div style={{ padding: "5% 10%" }}>
       <Grid container spacing={2} style={{ padding: 0 }} data-aos="fade-right">
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <p className="fullPub">
             <span className="pubNumber">
             <CountUp end={200} duration={4}/>k+</span>
@@ -18,7 +18,7 @@ const Publicity = () => {
             </span>
           </p>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <p className="fullPub">
             <span className="pubNumber">
             <CountUp end={150} duration={4}/>+</span>
@@ -31,7 +31,7 @@ const Publicity = () => {
             </span>
           </p>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <p className="fullPub">
             <span className="pubNumber"> 
             <CountUp end={50} duration={4}/>+</span>

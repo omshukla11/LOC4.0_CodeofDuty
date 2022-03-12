@@ -9,7 +9,7 @@ const Specs = () => {
         <center>
 
             <Grid container spacing={2} style={{ padding: "2% 10%" }}>
-                <Grid item sm={4} data-aos="fade-up">
+                <Grid item sm={4} xs={12} data-aos="flip-up">
                     <div
                         style={{
                             borderTopRightRadius: "30px",
@@ -22,7 +22,7 @@ const Specs = () => {
                         <img className="heroImage" src={image1} alt="human"></img>
                     </div>
                 </Grid>
-                <Grid item sm={4} data-aos="fade-up">
+                <Grid item sm={4} xs={12} data-aos="flip-up">
                     <div
                         style={{
                             borderTopRightRadius: "30px",
@@ -34,7 +34,7 @@ const Specs = () => {
                         <img className="heroImage" src={image2} alt="human"></img>
                     </div>
                 </Grid>
-                <Grid item sm={4} data-aos="fade-up">
+                <Grid item sm={4} xs={12} data-aos="flip-up">
                     <div
                         style={{
                             borderTopRightRadius: "30px",

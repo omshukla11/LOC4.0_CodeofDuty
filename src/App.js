@@ -41,6 +41,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
 import Recipes from './Accounts/Recipes';
+import Profile from './Player_profile/Profile';
 import Events from './Accounts/Events';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
@@ -184,6 +185,9 @@ export default function ToggleColorMode() {
               <Route path="/demo">
                 <Demo />
               </Route>
+              {/* <Route path='/googlefit'>
+                <GoogleFit/>
+              </Route> */}
               <Route path="/contact us">
                 <NavBar mode={mode} />
 
@@ -206,6 +210,9 @@ export default function ToggleColorMode() {
               </Route>
               <Route path='/recipes'>
                 <Recipes/>
+              </Route>
+              <Route path='/profile'>
+                <Profile/>
               </Route>
               <Route path="/videochat">
                 <VideoChat />

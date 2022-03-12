@@ -3,23 +3,6 @@ import { useHistory } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import './accounts.css'
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import {
     Grid,
     TextField,
@@ -39,7 +22,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { motion } from "framer-motion";
-
+import login from '../Images/login.jpg'
 import Card from '@mui/material/Card'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import chart from '../Images/chart.png'
@@ -140,10 +123,11 @@ const Login = () => {
             <Card>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
+                    <img src={login} alt="signup" style={{width:"100%" , height:"100%"}}/>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container>
-                            <Grid item xs={12} style={{ padding: "5vh" }}>
+                            <Grid item xs={12} style={{ padding: "5vh" , height:"87vh"}}>
                                 <form onSubmit={formik.handleSubmit} autoComplete="off" style={{ width: "100%" }}>
                                     <Grid container spacing={3}>
                                         <Grid item xs={12} sx={{ textAlign: "left", fontSize: "1.6rem", fontWeight: "750" }}>

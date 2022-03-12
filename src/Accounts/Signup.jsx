@@ -20,7 +20,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import signup from '../Images/signup.jpg';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import {
@@ -272,8 +272,9 @@ const Signup = () => {
     return (
         <div>
             <Card>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} style={{overflow:"hidden"}}>
                     <Grid item xs={12} md={6}>
+                        <img src={signup} alt="signup" style={{width:"100%" , height:"100%"}}/>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container>

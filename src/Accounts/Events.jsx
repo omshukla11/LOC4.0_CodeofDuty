@@ -3,7 +3,6 @@ import {Grid , Card} from '@mui/material'
 import './accounts.css';
 import './card.scss';
 import VideoPlayer from 'react-player'
-
 import ReactPlayer from 'react-player';
 const Events = () => {
   return (
@@ -14,6 +13,7 @@ const Events = () => {
                 <Grid item xs={12} sx={{textAlign:"left" ,fontSize:"1.6rem" , fontWeight:"750" ,marginLeft:"3vh"}}>
                  Yoga
                 </Grid>
+                <Grid container>
                 <Grid item xs={12} md={3} sm={6}>
                     <Card sx={{boxShadow:"none"}}>
                     <div class="card">
@@ -57,6 +57,7 @@ const Events = () => {
                   </div>
                   </div>
                 </Card>
+                </Grid>
                 </Grid>
                 </Grid>
                 <Grid item xs={12}>

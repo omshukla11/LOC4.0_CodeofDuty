@@ -28,8 +28,6 @@ import Draggable from 'react-draggable';
 import Feedback from './Accounts/Feedback';
 import VideoChat from './Accounts/VideoChat';
 import Video from './Accounts/Video';
-import Verification from './Accounts/Verification';
-import ForgotPassword from "./Accounts/ForgotPassword";
 import NavBar from './Dashboard/Navbar';
 import Dashboard from './Dashboard/Dashboard';
 import Footer from './Dashboard/footer';
@@ -42,11 +40,17 @@ import { useEffect } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
+import Events from './Accounts/Events';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
+
 
 function MyApp() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
+  useEffect(() => {
+    Aos.init({ duration: 500, once: false });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -180,7 +184,13 @@ export default function ToggleColorMode() {
                 <Demo />
               </Route>
               <Route path="/contact us">
+                <NavBar mode={mode} />
+
                 <Contactus />
+              </Route>
+              <Route path="/Events">
+              <NavBar mode={mode}/>
+                <Events/>
               </Route>
               {/* <Route path='/chat'>
                 <CustomizedDialogs />
@@ -189,6 +199,8 @@ export default function ToggleColorMode() {
                 <Contactus />
               </Route> */}
               <Route path="/Feedback">
+                <NavBar mode={mode} />
+
                 <Feedback />
               </Route>
               <Route path="/videochat">
@@ -197,19 +209,15 @@ export default function ToggleColorMode() {
               <Route path="/video">
                 <Video />
               </Route>
-              <Route path="/Events">
-                <Events/>
-              </Route>
               <Route path="/dashboard">
                 <NavBar mode={mode} />
                 <Dashboard />
 
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
-                  position= 'fixed'
-                  sx={{ position: 'absolute', bottom: 16, right: 16 }}
-                  icon={<SpeedDialIcon color='green'/>}
-
+                  sx={{ position: 'fixed', bottom: 16, right: 16 }}
+                  icon={<SpeedDialIcon  />}
+                  
                 >
                   <SpeedDialAction
                     key='Bot'
@@ -243,12 +251,6 @@ export default function ToggleColorMode() {
                   <SimpleForm />
                 </BootstrapDialog>
               </Route>
-              <Route exact path="/account/email-verify/user-id=:token">
-                <Verification />
-              </Route>
-              <Route exact path="/account/password-reset/:uidb64/:token/">
-                <ForgotPassword />
-              </Route>
             </Switch>
           </div>
         </Router>
@@ -259,3 +261,7 @@ export default function ToggleColorMode() {
     </ColorModeContext.Provider>
   );
 }
+
+	
+	
+	

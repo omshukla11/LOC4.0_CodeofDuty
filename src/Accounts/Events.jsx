@@ -15,6 +15,17 @@ const Events = () => {
                 </Grid>
                 <Grid container>
                 <Grid item xs={12} md={3} sm={6}>
+                <Card style={{boxShadow:"none"}}>
+              <div class="box box-2">
+                <div class="first">
+                   
+                </div>
+               <div class="second">
+                  <p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+                   <p><a href="#">Find out more</a></p>
+               </div>
+               </div>
+        </Card>
                     <Card sx={{boxShadow:"none"}}>
                     <div class="card">
 		            <figure class="card__thumb">

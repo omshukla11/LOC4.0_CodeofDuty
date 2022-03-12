@@ -1,7 +1,7 @@
 import React from 'react';
-import { CardDeck } from 'react-bootstrap';
+// import { CardDeck } from 'react-bootstrap';
 import CardComponent from '../CardComponent/CardComponent.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Stack from '@mui/material/Stack';
 
 const CardRowComponent = (props) => {
   // calculate aggregated data
@@ -28,12 +28,12 @@ const CardRowComponent = (props) => {
 
   return (
     <div>
-      <CardDeck>
+      <Stack spacing={2}>
           <CardComponent element={{title: "Calories Burnt", value: aggData.Calories, id: 0}} />
           <CardComponent element={{title: "Heart Points", value: aggData.Heart, id:1}} />
           <CardComponent element={{title: "Move Minutes", value: aggData.Move, id:2}} />
           <CardComponent element={{title: "Steps Travelled", value: aggData.Steps, id:3}} />
-      </CardDeck>
+      </Stack>
     </div>
   );
 }

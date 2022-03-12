@@ -1,21 +1,23 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+
 const CardComponent = (props) => {
   const style = {
     backgroundColor: '#272727',
     color: '#ffffff'
   };
   return (
-    <Card  className="mb-2 text-center" style={style}>
-      <Card.Body>
-        <Card.Title>
+    <Card variant="outlined" style={style}>
+      <CardContent>
+        <Typography variant="h5" component="div">
           {props.element.title}
-        </Card.Title>
-        <Card.Subtitle>
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {props.element.value}
-        </Card.Subtitle>
-      </Card.Body>
+        </Typography>
+      </CardContent>
     </Card>
   );
 }

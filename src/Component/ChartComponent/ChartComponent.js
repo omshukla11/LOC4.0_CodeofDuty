@@ -1,8 +1,8 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-const { extractElement, extractDate } = require('../../Utility/ChartDataManager.js');
-
+const { extractElement, extractDate } = require('../Utility/ChartDataManager.js');
+// import '../../Utility/ChartDataManager.js'
 const textStyle = {
   color: '#ffffff'
 }

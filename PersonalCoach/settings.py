@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
     'accounts',
+    'body',
+    'diet',
+    'gym',
+    'planner',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

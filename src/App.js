@@ -38,7 +38,10 @@ import { SpeedDialIcon } from '@mui/material';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
-import Events from './Accounts/Events';
+import { useEffect } from 'react';
+import Aos from "aos";
+import "aos/dist/aos.css";
+import "./Dashboard/Basic.css"
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 function MyApp() {
@@ -48,11 +51,12 @@ function MyApp() {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'right',
+        justifyContent: 'right',
         bgcolor: 'background.default',
         color: 'text.primary',
         borderRadius: 1,
+        padding:'0%',
         p: 3,
       }}
       fullWidth
@@ -158,6 +162,7 @@ export default function ToggleColorMode() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+      
         <MyApp />
         <Router>
           <div className="App">
@@ -180,6 +185,9 @@ export default function ToggleColorMode() {
               {/* <Route path='/chat'>
                 <CustomizedDialogs />
               </Route> */}
+              {/* <Route path="/ContactUs">
+                <Contactus />
+              </Route> */}
               <Route path="/Feedback">
                 <Feedback />
               </Route>
@@ -194,6 +202,8 @@ export default function ToggleColorMode() {
               </Route>
               <Route path="/dashboard">
                 <NavBar mode={mode} />
+                <Dashboard />
+
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
                   position= 'fixed'
@@ -232,7 +242,6 @@ export default function ToggleColorMode() {
                   </DialogTitle>
                   <SimpleForm />
                 </BootstrapDialog>
-                <Dashboard />
               </Route>
               <Route exact path="/account/email-verify/user-id=:token">
                 <Verification />

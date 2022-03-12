@@ -9,14 +9,15 @@ import Sport from './Sports'
 
 const Dashboard = () => {
     return (
-        <Card>
+        <Card style={{ transform: 'translateY(-32px)' }} >
+
             <Hero />
-            <Specs/>
-            <Sport/>
-            <Examples/>
-            <Publicity/>
-            <Footer/>
-        </Card>
+            <Specs />
+            <Sport />
+            <Examples />
+            <Publicity />
+            <Footer />
+        </Card >
     )
 }
 

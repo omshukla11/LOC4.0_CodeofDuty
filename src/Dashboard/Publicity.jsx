@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 const Publicity = () => {
   return (
     <div style={{ padding: "5% 10%" }}>
-      <Grid container spacing={2} style={{ padding: 0 }}>
+      <Grid container spacing={2} style={{ padding: 0 }} data-aos="fade-right">
         <Grid item xs={4}>
           <p className="fullPub">
             <span className="pubNumber">

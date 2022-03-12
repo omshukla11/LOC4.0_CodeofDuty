@@ -17,7 +17,8 @@ const Footer = (mode) => {
         <div
             style={{
                 paddingTop: "20px",
-                // color: "white",
+                backgroundColor: '#f2cf07',
+                backgroundImage: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)',
             }}
         >
             <center>
@@ -29,14 +30,14 @@ const Footer = (mode) => {
                                 width="120"
                                 src={image}
                                 alt="logo"
-                                style={{ transform: "translateX(-10px)",filter:'invert(1)' }}
+                                style={{ transform: "translateX(-10px)", filter: 'invert(1)' }}
                             ></img> : <img
                                 width="120"
                                 src={image}
                                 alt="logo"
                                 style={{ transform: "translateX(-10px)" }}
                             ></img>}
-      `                  {/* <img
+                        `                  {/* <img
                             width="120"
                             src={image}
                             alt="logo"
@@ -77,33 +78,38 @@ const Footer = (mode) => {
                             No. U, 15, Bhaktivedanta Swami Rd, opp. Cooper Hospital, JVPD
                             Scheme, Vile Parle, Mumbai, Maharashtra 400056 .India
                         </h6>
-                        <a
-                            style={{ textDecoration: "none" }}
+                        {/* <a
+                            style={{ textDecoration: "none", color: '' }}
                             rel="noreferrer"
                             href="mailto:coreacm@gmail.com"
                             target="_blank"
                         >
                             {" "}
-                            <h6 className="locationMail">omshukla@gmail.com</h6>
-                        </a>
+                            <h6 className="locationMail" style={{color:'black'}}>omshukla@gmail.com</h6>
+                        </a> */}
                     </Grid>
                     <Grid item sm={3} xs={12}>
                         <p>Follow us</p>
                         <a
                             href="#"
                             rel="noreferrer"
+                            style={{color:'black'}}
                         >
                             <BsInstagram />
                         </a>
                         <a
                             href="#"
                             rel="noreferrer"
+                            style={{color:'black'}}
+
                         >
                             <BsFacebook />
                         </a>
                         <a
                             href="#"
                             rel="noreferrer"
+                            style={{color:'black'}}
+
                         >
                             <BsLinkedin />
                         </a>

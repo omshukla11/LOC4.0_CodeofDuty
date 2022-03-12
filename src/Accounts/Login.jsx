@@ -39,16 +39,48 @@ import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { motion } from "framer-motion";
+
+import Card from '@mui/material/Card'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import chart from '../Images/chart.png'
 import Swal from "sweetalert2";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
-import { Formik } from "formik";
+import {useFormik} from 'formik';
+import * as yup from 'yup';
 import { Link } from "react-router-dom";
 import { FormatAlignLeftSharp } from "@mui/icons-material";
-
+const validationSchema = yup.object({
+    email: yup
+      .string('Enter your Email')
+      .email('Enter a valid email')
+      .required('Email is required'),
+    password: yup
+      .string('Enter your password')
+      .min(8, 'Password is too short')
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Password nust conatin minimum eight characters, at least one letter, one number and one special character are required')
+      .required('Password is required'),
+    
+  });
+/*function Copyright(props) {
+    return (
+        <Typography
+            variant="body2"
+            color="text.secondary"
+            align="center"
+            {...props}
+            style={{ fontSize: "1.1rem" }}
+        >
+            {"Copyright © "}
+            <Link color="inherit" style={{ color: "#fc5296", textDecoration: "none" }}>
+                Code of duty &nbsp;
+            </Link>
+            {new Date().getFullYear()}
+            {"."}
+        </Typography>
+    );
+}
 function Copyright(props) {
     return (
         <Typography
@@ -67,11 +99,108 @@ function Copyright(props) {
         </Typography>
     );
 }
-
+*/
 const theme = createTheme();
 
 const Login = () => {
-    // definition
+    const formik = useFormik({
+        initialValues: {
+          email:'',
+          password:'',
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+          console.log(values);
+          //alert(JSON.stringify(values.name, null, 2));
+        },
+      });
+      const [passwordShow, setpassword] = React.useState(false);
+    const [passwordShow2, setpassword2] = React.useState(false);
+      return (
+    <div>
+    <Card>
+    <Grid container spacing={3}>
+                <Grid item xs={12} md={6}>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                <Grid container>
+                <Grid item xs={12} style={{padding:"5vh" }}>     
+                <form onSubmit={formik.handleSubmit} autoComplete="off" style={{width:"100%"}}> 
+                  <Grid container spacing={3}>
+                    <Grid item xs={12} sx={{textAlign:"left" ,fontSize:"1.6rem" , fontWeight:"750"}}>
+                     Login
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                   
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                    <TextField
+                    fullWidth
+                    id="email"
+                    name="email"
+                    label="Email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                    />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                    <Grid item xs={12} sm={12} md={12}>
+                            <TextField
+                             fullWidth
+                             id="password"
+                             name="password"
+                             label="Password"
+                             type={passwordShow ? "text" : "password"}
+                             value={formik.values.password}
+                             onChange={formik.handleChange}
+                             error={formik.touched.password && Boolean(formik.errors.password)}
+                             helperText={formik.touched.password && formik.errors.password}
+                             InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onMouseDown={(e) => e.preventDefault()}
+                                            edge="end"
+                                            onClick={() => {
+                                                setpassword(!passwordShow);
+                                            }}
+                                        >
+                                            {passwordShow ? (
+                                                <VisibilityOff />
+                                            ) : (
+                                                <Visibility />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}/>
+                    </Grid>
+                    
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                    <Button variant="contained" fullWidth type="submit"
+                    sx={{backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)",fontSize:"1.2rem" , fontWeight:"600"}}>
+                      Submit
+                    </Button>
+                    </Grid>
+                    <Grid item xs={12} sx={{fontSize:"1.2rem" , fontWeight:"550"}}>
+                        <Link to='/signup' style={{textDecoration:"none" , color:"#f2cf07"}}> Don't have an account ? Sign Up</Link>
+                    </Grid>
+                  </Grid>      
+                </form>
+                </Grid> 
+                </Grid>
+            </Grid>
+            </Grid>
+    </Card>
+    </div>
+      )}
+
+    {/*// definition
     const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
             width: drawerWidth,
@@ -254,7 +383,7 @@ const Login = () => {
                     </List>
                 </Drawer>
                 <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                    <DrawerHeader /> */}
+                    <DrawerHeader /> *
             <Grid
                 container
                 component="main"
@@ -262,7 +391,7 @@ const Login = () => {
             // style={{ padding: "10px 50px" }}
             >
                 <CssBaseline />
-                {/* <Grid
+                /* <Grid
                     item
                     xs={false}
                     sm={4}
@@ -278,7 +407,7 @@ const Login = () => {
                         backgroundSize: "700px",
                         // backgroundPosition: "center",
                     }}
-                /> */}
+                /> 
                 <Grid item xs={12} sm={8} md={12} elevation={6} >
                     <Paper elevation={3} style={{ margin: '0 20%', paddingTop: '2%', zIndex: '3' }}>
 
@@ -486,7 +615,7 @@ const Login = () => {
                                             <Grid item xs={12} md={12}>
                                                 {/*<Link href="#" variant="body2">
                         Forgot password?
-                      </Link>*/}
+                      </Link>
                                                 <div
 
                                                     fullWidth
@@ -553,7 +682,7 @@ const Login = () => {
                                             <Grid item xs={12} md={12}>
                                                 {/*<Link to="/signin" variant="body2">
                         {"Already have an account ? Signin"}
-                    </Link>*/}
+                    </Link>*
                                                 <div
                                                     color="primary"
                                                     variant="outlined"
@@ -586,18 +715,15 @@ const Login = () => {
                         </Box>
                     </Paper>
                 </Grid>
-                {/* <div className="ball ball1" ></div>
+                /* <div className="ball ball1" ></div>
                 <div className="ball ball2"></div>
                 <div className="ball ball3"></div>
                 <div className="ball ball4"></div>
                 <div className="ball ball5"></div>
-                <div className="ball ball6"></div> */}
+                <div className="ball ball6"></div> *
             </Grid>
-            {/* </Box> */}
-            {/* // </Box> */}
 
-        </ThemeProvider>
-    );
-};
+                                                    </ThemeProvider>*/}
+                    
 
 export default Login;

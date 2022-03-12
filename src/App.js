@@ -160,9 +160,7 @@ export default function ToggleColorMode() {
           <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
             Welcome to Chatty ;)
           </DialogTitle>
-          {/* <chatT theme={chatTheme}> */}
             <SimpleForm />
-          {/* </chatT> */}
         </BootstrapDialog>
         <Router>
           <div className="App">

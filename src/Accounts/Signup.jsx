@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card'
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,6 +20,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+
+import {useFormik} from 'formik';
+import * as yup from 'yup';
 import {
     Grid,
     TextField,
@@ -47,7 +51,29 @@ import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import { FormatAlignLeftSharp } from "@mui/icons-material";
-
+const validationSchema = yup.object({
+    email: yup
+      .string('Enter your Email')
+      .email('Enter a valid email')
+      .required('Email is required'),
+    password: yup
+      .string('Enter your password')
+      .min(8, 'Password is too short')
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Password nust conatin minimum eight characters, at least one letter, one number and one special character are required')
+      .required('Password is required'),
+    firstname: yup
+      .string('Enter your First Name')
+      .required('First Name is required'),
+    lastname: yup
+      .string('Enter your Last Name')
+      .required('Last Name is required'),
+    confirmpass: yup
+        .string('Enter your Confirm Password')
+        .oneOf([yup.ref('password'), null], 'Passwords must match')
+        .required('Confirm Password is required'),
+  
+  
+  });
 function Copyright(props) {
     return (
         <Typography
@@ -70,8 +96,25 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Signup = () => {
+    const formik = useFormik({
+        initialValues: {
+          firstname:'',
+          email:'',
+          password:'',
+          lastname:'',
+          confirmpass:'',
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+          console.log(values)
+          //alert(JSON.stringify(values.name, null, 2));
+        },
+      });
+
+    const [passwordShow, setpassword] = React.useState(false);
+    const [passwordShow2, setpassword2] = React.useState(false);
     // definition
-    const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+    {/*const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
             width: drawerWidth,
             flexShrink: 0,
@@ -203,63 +246,159 @@ const Signup = () => {
             },
 
         },
-    });
+    });*/}
     return (
-        <ThemeProvider theme={theme}>
-            {/* <Box sx={{ display: 'flex' }}>
-                <CssBaseline />
-                <AppBar position="fixed" open={open} color='transparent' elevation={0}>
-                    <Toolbar>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                            sx={{
-                                marginRight: '36px',
-                                ...(open && { display: 'none' }),
+        <div>
+            <Card>
+            <Grid container spacing={3}>
+                <Grid item xs={12} md={6}>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                <Grid container>
+                <Grid item xs={12} style={{padding:"5vh" }}>     
+                <form onSubmit={formik.handleSubmit} autoComplete="off" style={{width:"100%"}}> 
+                  <Grid container spacing={3}>
+                    <Grid item xs={12} sx={{textAlign:"left" ,fontSize:"1.6rem" , fontWeight:"750"}}>
+                     Sign Up 
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} md={6}>
+                            <TextField
+                            fullWidth
+                            id="firstname"
+                            name="firstname"
+                            label="First Name"
+                            value={formik.values.firstname}
+                            onChange={formik.handleChange}
+                            error={formik.touched.firstname && Boolean(formik.errors.firstname)}
+                            helperText={formik.touched.firstname && formik.errors.firstname}
+                            />
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                            <TextField
+                            fullWidth
+                            id="lastname"
+                            name="lastname"
+                            label="Last Name"
+                            value={formik.values.lastname}
+                            onChange={formik.handleChange}
+                            error={formik.touched.lastname && Boolean(formik.errors.lastname)}
+                            helperText={formik.touched.lastname && formik.errors.lastname} 
+                            />
+                            </Grid>
+                        </Grid>
+                   
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                    <TextField
+                    fullWidth
+                    id="email"
+                    name="email"
+                    label="Email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                    />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} md={6}>
+                            <TextField
+                             fullWidth
+                             id="password"
+                             name="password"
+                             label="Password"
+                             type={passwordShow ? "text" : "password"}
+                             value={formik.values.password}
+                             onChange={formik.handleChange}
+                             error={formik.touched.password && Boolean(formik.errors.password)}
+                             helperText={formik.touched.password && formik.errors.password}
+                             InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onMouseDown={(e) => e.preventDefault()}
+                                            edge="end"
+                                            onClick={() => {
+                                                setpassword(!passwordShow);
+                                            }}
+                                        >
+                                            {passwordShow ? (
+                                                <VisibilityOff />
+                                            ) : (
+                                                <Visibility />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
                             }}
-                        >
-                            <ChevronRightIcon />
-                        </IconButton>
-                    </Toolbar>
-                    </AppBar>
-                <Drawer variant="permanent" open={open}>
-                    <DrawerHeader>
-                        <IconButton onClick={handleDrawerClose}>
-                            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                        </IconButton>
-                    </DrawerHeader>
-                    <Divider />
-                    <List>
-                        {['SignUp', 'Login'].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['ContactUs', 'FAQS'].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                    <DrawerHeader /> */}
+                             />
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                            <TextField
+                            fullWidth
+                            id="confirmpass"
+                            name="confirmpass"
+                            label="Confirm Password"
+                            type={passwordShow2 ? "text" : "password"}
+                            value={formik.values.confirmpass}
+                            onChange={formik.handleChange}
+                            error={formik.touched.confirmpass && Boolean(formik.errors.confirmpass)}
+                            helperText={formik.touched.confirmpass && formik.errors.confirmpass} 
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onMouseDown={(e) => e.preventDefault()}
+                                            edge="end"
+                                            onClick={() => {
+                                                setpassword2(!passwordShow2);
+                                            }}
+                                        >
+                                            {passwordShow2 ? (
+                                                <VisibilityOff />
+                                            ) : (
+                                                <Visibility />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}
+                            />
+                            
+                            </Grid>
+                        </Grid>
+                   
+                    </Grid>
+                    
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                    <Button variant="contained" fullWidth type="submit"
+                    sx={{backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)",fontSize:"1.2rem" , fontWeight:"600"}}>
+                      Submit
+                    </Button>
+                    </Grid>
+                    <Grid item xs={12} sx={{fontSize:"1.2rem" , fontWeight:"550"}}>
+                        <Link to='/' style={{textDecoration:"none" , color:"#f2cf07"}}>Have an account? Login</Link>
+                    </Grid>
+                  </Grid>      
+                </form>
+                </Grid> 
+                </Grid>
+            </Grid>
+            </Grid>
+            </Card>
+            {/*<ThemeProvider theme={theme}>
             <Grid
                 container
                 component="main"
                 sx={{ height: "100vh" }}
-            // style={{ padding: "10px 50px" }}
             >
                 <CssBaseline />
                 <Grid
@@ -271,12 +410,7 @@ const Signup = () => {
                     sx={{
                         backgroundImage: `url(${chart})`,
                         backgroundRepeat: "no-repeat",
-                        // backgroundColor: (t) =>
-                        //     t.palette.mode === "light"
-                        //         ? t.palette.grey[50]
-                        //         : t.palette.grey[900],
                         backgroundSize: "700px",
-                        // backgroundPosition: "center",
                     }}
                 />
                 <Grid item xs={12} sm={8} md={5} elevation={6} square>
@@ -300,14 +434,20 @@ const Signup = () => {
                                 password: "",
                                 password2: "",
                                 name: "",
-                                fname: "",
-                                lname: "",
+                                firstname: "",
+                                lastname: "",
                                 subject: "",
-                                message: "",
+                                password: "",
                                 showPassword: false,
                             }}
                             validate={(values) => {
                                 const errors = {};
+                                if(!values.firstname){
+                                    errors.firstname = "First Name required";
+                                }
+                                if(!values.lastname){
+                                    errors.firstname = "Last Name required";
+                                }
                                 if (!values.password) {
                                     errors.password = "Password is required";
                                 } else if (values.password.length < 8) {
@@ -351,6 +491,94 @@ const Signup = () => {
                                     noValidate
                                     sx={{ mt: 1 }}
                                 >
+                                    <Grid container spacing={2}>
+                                        <Grid item md={6} sm={12} xs={12}>
+                                            <Tooltip
+                                                title="Minimum eight characters, at least one letter, one number and one special character are required"
+                                                arrow
+                                            >
+                                                <ValidationTextField
+                                                    label="First Name"
+                                                    color="primary"
+                                                    type="text"
+                                                    // error={errors.password}
+                                                    required
+                                                    variant="outlined"
+                                                    value={values.firstname}
+                                                    name="firstname"
+                                                    fullWidth
+                                                    // onChange={handleChanges}
+
+                                                    onChange={(event) => {
+                                                        handleChange(event);
+                                                        handleChanges(event);
+                                                    }}
+                                                    autoComplete="off"
+                                                    
+                                                />
+                                            </Tooltip>
+                                            {errors.firstname ? (
+                                                <FormHelperText error>{errors.firstname}</FormHelperText>
+                                            ) : (
+                                                <FormHelperText style={{ visibility: "hidden" }}>
+                                                    ..
+                                                </FormHelperText>
+                                            )}
+
+                                        </Grid>
+                                        <Grid item md={6} sm={12} xs={12}>
+                                            <ValidationTextField
+                                                label="Confirm password"
+                                                color="primary"
+                                                type={passwordShow2 ? "text" : "password"}
+                                                // error={errors.password2}
+                                                required
+                                                variant="outlined"
+                                                value={values.password2}
+                                                name="password2"
+                                                fullWidth
+                                                // onChange={handleChanges}
+
+                                                onChange={(event) => {
+                                                    handleChange(event);
+                                                    handleChanges(event);
+                                                }}
+                                                autoComplete="off"
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton
+                                                                aria-label="toggle password visibility"
+                                                                onMouseDown={(e) => e.preventDefault()}
+                                                                edge="end"
+                                                                onClick={() => {
+                                                                    setpassword2(!passwordShow2);
+                                                                }}
+                                                            >
+                                                                {passwordShow2 ? (
+                                                                    <VisibilityOff />
+                                                                ) : (
+                                                                    <Visibility />
+                                                                )}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                            {errors.password2 ? (
+                                                <FormHelperText error>
+                                                    {errors.password2}
+                                                </FormHelperText>
+                                            ) : (
+                                                <FormHelperText style={{ visibility: "hidden" }}>
+                                                    ..
+                                                </FormHelperText>
+                                            )}
+                                        </Grid>
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </Grid>
                                     <ValidationTextField
                                         id="outlined-basic"
                                         label="Email"
@@ -489,28 +717,6 @@ const Signup = () => {
                                         <br />
                                         <br />
                                         <br />
-                                        {/* <FormControl
-                                                    style={{
-                                                        width: "490px",
-                                                        transform: "translateX(17px)",
-                                                        margin: "5px",
-                                                    }}
-                                                    fullWidth
-                                                >
-                                                    <InputLabel id="demo-simple-select-label">
-                                                        Role
-                                                    </InputLabel>
-                                                    <Select
-                                                        labelId="demo-simple-select-label"
-                                                        id="demo-simple-select"
-                                                        value={teacher}
-                                                        label="Role"
-                                                        onChange={(e) => setRole(e.target.value)}
-                                                    >
-                                                        <MenuItem value={true}>Teacher</MenuItem>
-                                                        <MenuItem value={false}>Student</MenuItem>
-                                                    </Select>
-                                                </FormControl> */}
                                     </Grid>
                                     <Button
                                         type="submit"
@@ -607,9 +813,12 @@ const Signup = () => {
                     </Box>
                 </Grid>
             </Grid>
-            {/* </Box> */}
-            {/* // </Box> */}
-        </ThemeProvider>
+            {/* </Box> */
+            /* // </Box> 
+            </ThemeProvider>*/}
+        </div>
+        
+
     );
 };
 

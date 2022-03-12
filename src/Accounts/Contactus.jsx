@@ -57,8 +57,8 @@ const Contactus = () => {
           <Grid item xs={12}>
             <Grid container spacing={3}>
               <Grid item xs={4}>
-                <Card sx={{backgroundColor: '#fc5296',
-                backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)'}}>
+                <Card sx={{backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)"}}>
                 <Grid container>
                   <Grid item xs={12} style={{margin:"2vh"}}>
                     <img src={location} style={{width:"12vh" , height:"12vh"}}/>
@@ -67,8 +67,8 @@ const Contactus = () => {
                 </Card>
               </Grid>
               <Grid item xs={4}>
-              <Card sx={{backgroundColor: '#fc5296',
-                backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)'}}>
+              <Card sx={{backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)"}}>
                 <Grid container>
                   <Grid item xs={12} style={{margin:"2vh"}}>
                     <img src={phone} style={{width:"12vh" , height:"12vh"}}/>
@@ -77,8 +77,8 @@ const Contactus = () => {
                 </Card>
               </Grid>
               <Grid item xs={4}>
-              <Card sx={{backgroundColor: '#fc5296',
-                backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)'}}>
+              <Card sx={{backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)"}}>
                 <Grid container>
                   <Grid item xs={12} style={{margin:"2vh"}}>
                     <img src={mail} style={{width:"12vh" , height:"12vh"}}/>
@@ -144,8 +144,8 @@ const Contactus = () => {
                     </Grid>
                     <Grid item xs={12} md={11} sm={11}>
                     <Button variant="contained" fullWidth type="submit"
-                    sx={{backgroundColor: '#fc5296',
-                    backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)',fontSize:"1.2rem" , fontWeight:"600"}}>
+                    sx={{backgroundColor:"#f2cf07",
+                    backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)",fontSize:"1.2rem" , fontWeight:"600"}}>
                       Submit
                     </Button>
                     </Grid>
@@ -180,54 +180,60 @@ const Contactus = () => {
                       <Grid container spacing={2}>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
-                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                         borderImageSlice:"1" , fontSize:"0.8rem" , fontWeight:"550" ,
                         '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550" 
+                          backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         //backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550"}}
                         >Web Design</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
-                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                         borderImageSlice:"1" , fontSize:"0.8rem" , fontWeight:"550",
                         '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550" 
+                          backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         >React Js & Native</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
-                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                         borderImageSlice:"1" , fontSize:"0.8rem" , fontWeight:"550",
                         '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550" 
+                          backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         >Django</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
-                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                         borderImageSlice:"1" , fontSize:"0.8rem" , fontWeight:"550",
                         '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550" 
+                          backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         >Mern Stack</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
-                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                         borderImageSlice:"1" , fontSize:"0.8rem" , fontWeight:"550",'&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550" 
+                          backgroundColor:"#f2cf07",
+                          backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         >Flutter</Button>
                         </Grid>
                         <Grid item xs={6} md={4} sm={3}>
                         <Button variant="filled" fullWidth sx={{
-                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                        border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                         borderImageSlice:"1" , fontSize:"0.8rem" , fontWeight:"550",'&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"0.8rem" , fontWeight:"550" 
+                          backgroundColor:"#f2cf07",
+                        backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"0.8rem" , fontWeight:"550" 
                         }}}
                         >Kotlin</Button>
                         </Grid>

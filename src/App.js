@@ -156,7 +156,6 @@ export default function ToggleColorMode() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <MyApp />
-
         <Router>
           <div className="App">
             <Switch>

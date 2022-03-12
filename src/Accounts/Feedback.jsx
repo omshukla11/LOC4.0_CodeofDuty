@@ -117,8 +117,8 @@ const Feedback = () => {
                             </Grid>
                             <Grid item xs={12}>
                             <Button variant="contained" fullWidth type="submit"
-                            sx={{backgroundColor: '#fc5296',
-                            backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)',fontSize:"1.2rem" , fontWeight:"600"}}>
+                            sx={{ backgroundColor:"#f2cf07",
+                            backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)",fontSize:"1.2rem" , fontWeight:"600"}}>
                               Submit
                             </Button>
                             </Grid>
@@ -130,10 +130,10 @@ const Feedback = () => {
                           </Grid>
                           <Grid item xs={12} md={6} sm={6} sx={{textAlign:"left"}}>
                           <Card sx={{
-                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                           borderImageSlice:"1" , fontSize:"1rem" , fontWeight:"550",boxShadow:"none",padding:"2px",
-                          '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"1rem" , fontWeight:"550" 
+                          '&:hover' :{ backgroundColor:"#f2cf07",
+                          backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"1rem" , fontWeight:"550" 
                           }}}>
                             <div class="card-normal">
                             <div class="card-body">
@@ -153,10 +153,11 @@ const Feedback = () => {
                           </Grid>
                           <Grid item xs={12} md={6} sm={6} sx={{textAlign:"left"}}>
                           <Card sx={{
-                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                           borderImageSlice:"1" , fontSize:"1rem" , fontWeight:"550",boxShadow:"none",padding:"2px",
                           '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"1rem" , fontWeight:"550" 
+                            backgroundColor:"#f2cf07",
+                            backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize:"1rem" , fontWeight:"550" 
                           }}}>
                             <div class="card-normal">
                             <div class="card-body">
@@ -176,10 +177,11 @@ const Feedback = () => {
                           </Grid>
                           <Grid item xs={12} md={6} sm={6} sx={{textAlign:"left"}}>
                           <Card sx={{
-                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                           borderImageSlice:"1" , fontSize:"1rem" , fontWeight:"550",boxShadow:"none",padding:"2px",
                           '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"1rem" , fontWeight:"550" 
+                            backgroundColor:"#f2cf07",
+                            backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"1rem" , fontWeight:"550" 
                           }}}>
                             <div class="card-normal">
                             <div class="card-body">
@@ -199,10 +201,11 @@ const Feedback = () => {
                           </Grid>
                           <Grid item xs={12} md={6} sm={6} sx={{textAlign:"left"}}>
                           <Card sx={{
-                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , 
+                          border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
                           borderImageSlice:"1" , fontSize:"1rem" , fontWeight:"550",boxShadow:"none",padding:"2px",
                           '&:hover' :{
-                          backgroundColor: '#fc5296',backgroundImage: 'linear-gradient(315deg, #fc5296 0%, #f67062 74%)' , fontSize:"1rem" , fontWeight:"550" 
+                            backgroundColor:"#f2cf07",
+                            backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"1rem" , fontWeight:"550" 
                           }}}>
                             <div class="card-normal">
                             <div class="card-body">
@@ -239,7 +242,7 @@ const Feedback = () => {
                           id="panel1bh-header"
                           sx={{boxShadow:"none" }}
                         >
-                          <Typography sx={{ textAlign:"left" , fontSize:"1.2rem", fontWeight:"650" , color:"#f77f73"}}>
+                          <Typography sx={{ textAlign:"left" , fontSize:"1.2rem", fontWeight:"650" , color:"#55d284"}}>
                             Why choose our website ?
                           </Typography>
                         </AccordionSummary>
@@ -256,7 +259,7 @@ const Feedback = () => {
                           aria-controls="panel2bh-content"
                           id="panel2bh-header"
                         >
-                          <Typography sx={{ textAlign:"left", fontSize:"1.2rem", fontWeight:"650" , color:"#f76a6c"}}>What is the Motto of our website ?</Typography>
+                          <Typography sx={{ textAlign:"left", fontSize:"1.2rem", fontWeight:"650" , color:"#6ad273"}}>What is the Motto of our website ?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                           <Typography sx={{textAlign:"left", fontSize:"1.2rem"}}>
@@ -272,7 +275,7 @@ const Feedback = () => {
                           aria-controls="panel3bh-content"
                           id="panel3bh-header"
                         >
-                          <Typography sx={{ textAlign:"left", fontSize:"1.2rem", fontWeight:"650", color:"#f95f7f"}}>
+                          <Typography sx={{ textAlign:"left", fontSize:"1.2rem", fontWeight:"650", color:"#9cd14c"}}>
                             How secured is our website ?
                           </Typography>
                         </AccordionSummary>
@@ -289,7 +292,7 @@ const Feedback = () => {
                           aria-controls="panel4bh-content"
                           id="panel4bh-header"
                         >
-                          <Typography sx={{textAlign:"left", fontSize:"1.2rem" , fontWeight:"650" , color:"#fc5492"}}>What are our Customer Care Policies ?</Typography>
+                          <Typography sx={{textAlign:"left", fontSize:"1.2rem" , fontWeight:"650" , color:"#f2cf07"}}>What are our Customer Care Policies ?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                           <Typography sx={{textAlign:"left", fontSize:"1.2rem"}}>
@@ -300,7 +303,7 @@ const Feedback = () => {
                       </Accordion>
                     </Grid>
                     <Grid item xs={12} sx={{textAlign:"left" ,margin:"2vh" , fontWeight:"550" , fontSize:"1.15rem"}}>
-                      You have got some Q's and we have got tons of A's. <br/><Link to="/contactus" style={{fontWeight:"700" , textDecoration:"none" , color:"#f95f7f"}}>Ask us</Link> about our website, mission, vision, motive...anything we can help with !😃
+                      You have got some Q's and we have got tons of A's. <br/><Link to="/contactus" style={{fontWeight:"700" , textDecoration:"none" , color:"#9cd14c"}}>Ask us</Link> about our website, mission, vision, motive...anything we can help with !😃
                     </Grid>
                 </Grid>
             </Grid>

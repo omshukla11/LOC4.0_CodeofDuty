@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 def upload_path_handler(instance, filename): 
     return "Recipe_Image/{title}/{file}".format(
-        title=instance.Recipe.recipe_name, file=filename
+        title=instance.recipe_name, file=filename
     )
 
 class Recipe(models.Model):

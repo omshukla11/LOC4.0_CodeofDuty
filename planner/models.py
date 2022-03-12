@@ -1,8 +1,10 @@
+
 from django.db import models
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
-# Create your models here.
 
-class Program(models.Model):
+class Program(models.Model): #categories boxing,cricket,yoga,gym
 	
 	LEVEL = (('BE', 'Beginner'), ('IN', 'Intermediate'), ('AD', 'Advanced'),)
 	TYPE = (('BU', 'Bulking'), ('CU', 'Cutting'), ('MA', 'Maintaining'),)
@@ -12,8 +14,8 @@ class Program(models.Model):
 	summary = models.TextField(null = False, blank = True, max_length = 1500)
 	level = models.CharField(max_length = 2, choices = LEVEL, default = 'IN')
 	goal = models.CharField(max_length = 2, choices = TYPE, default = 'MA')
-	start_date = models.DateTimeField(null = False, blank = False, auto_now_add=True)
-	end_date = models.DateTimeField(null = False, blank = False)
+	# start_date = models.DateTimeField(null = False, blank = False, auto_now_add=True)
+	# end_date = models.DateTimeField(null = False, blank = False)
 	phases = models.ManyToManyField('planner.ProgramPhase')
 
 	
@@ -21,7 +23,7 @@ class Program(models.Model):
 		return self.name
 
 
-class ProgramPhase(models.Model):
+class ProgramPhase(models.Model): #if selected cricket toh idhr different programs in cricket
 	order = models.PositiveIntegerField(blank = False, null = False)
 	weeks_duration = models.PositiveIntegerField(blank = False, null = False)
 	workout = models.ForeignKey('planner.Workout', null = True, on_delete = models.SET_NULL)
@@ -33,7 +35,7 @@ class ProgramPhase(models.Model):
 		ordering = ['order']
 
 
-class Workout(models.Model):
+class Workout(models.Model): #on program in cricket ka workout ka name nad image
 	
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	image = models.ImageField(upload_to = 'planner/workout/', null = False, blank = False)
@@ -44,7 +46,7 @@ class Workout(models.Model):
 		return self.name
 
 
-class WorkoutDay(models.Model):
+class WorkoutDay(models.Model): #days of the week for that workout
 	
 	DAY = (('MO', 'Monday'), ('TU', 'Tuesday'), ('WE', 'Wednesday'), ('TH', 'Thursday'), ('FR', 'Friday'),
 	('SA', 'Saturday'), ('SU', 'Sunday'),)
@@ -58,7 +60,7 @@ class WorkoutDay(models.Model):
 		return self.day_of_week + ' - ' + self.session.name
 
 
-class WorkoutSession(models.Model):
+class WorkoutSession(models.Model): #per workout layout
 	
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	summary = models.TextField(null = False, blank = True, max_length = 1000)
@@ -69,3 +71,12 @@ class WorkoutSession(models.Model):
 	
 	def __str__(self):
 		return self.name
+
+
+class UserProgram(models.Model):
+	user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+	program_id = models.ForeignKey(Program,on_delete=models.CASCADE)
+	start_date = models.DateTimeField(null = False, blank = False, auto_now_add=True)
+	end_date = models.DateTimeField(null = False, blank = False)
+	complete = models.BooleanField(default=False)
+	exercise_in_program = models.IntegerField(default=0)

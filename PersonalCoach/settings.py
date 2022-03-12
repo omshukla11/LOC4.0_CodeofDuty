@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_COOKIE_SECURE = TRUE
 # CSRF_COOKIE_DOMAIN = 'e038-1-22-101-132.ngrok.io'
-CSRF_TRUSTED_ORIGINS = ['https://a9c8-2402-3a80-6ba-1365-a4e7-4e08-36df-b41f.ngrok.io/']
+CSRF_TRUSTED_ORIGINS = ['https://dd89-2402-3a80-1393-9089-190d-84a1-35b-16d4.ngrok.io/']
 
 # Application definition
 

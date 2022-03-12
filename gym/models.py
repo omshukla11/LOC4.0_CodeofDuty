@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Exercise(models.Model):
+class Exercise(models.Model): #exercise detail
 	# Attributes
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	description = models.TextField(null = False, blank = True, max_length = 1000)
@@ -11,13 +11,13 @@ class Exercise(models.Model):
 	image = models.ImageField(upload_to = 'gym/exercises/', null = False, blank = True)
 	primary_muscles = models.ManyToManyField('body.Muscle', related_name = 'primary_muscles')
 	secondary_muscles = models.ManyToManyField('body.Muscle', related_name = 'secondary_muscles', blank = True)
-
+	url = models.URLField(null=True,blank=True)
 	# Methods
 	def __str__(self):
 		return str(self.primary_muscles.all().first()) + " - " + self.name
 
 
-class ExerciseSet(models.Model):
+class ExerciseSet(models.Model): #the variations in exercis
 	# Attributes
 	exercise = models.ForeignKey('gym.Exercise', null = False, blank = False, on_delete = models.CASCADE)
 	sets = models.ManyToManyField('gym.Set', related_name = 'sets')

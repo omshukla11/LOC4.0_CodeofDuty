@@ -68,7 +68,7 @@ class User(AbstractBaseUser):
     staff       = models.BooleanField(default=False)
     admin       = models.BooleanField(default=False)
     auth_provider     = models.CharField(max_length = 255, blank = False, null = False, default=AUTH_PROVIDERS.get('email'))
-    
+    # current_program   = models.ForeignKey('planner.Program',null = True, blank = True, on_delete=models.SET_NULL)
 
     USERNAME_FIELD = 'email'
 

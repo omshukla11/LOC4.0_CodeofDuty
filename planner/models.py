@@ -16,7 +16,7 @@ class Program(models.Model): #categories boxing,cricket,yoga,gym
 	goal = models.CharField(max_length = 2, choices = TYPE, default = 'MA')
 	# start_date = models.DateTimeField(null = False, blank = False, auto_now_add=True)
 	# end_date = models.DateTimeField(null = False, blank = False)
-	phases = models.ManyToManyField('planner.ProgramPhase')
+	# phases = models.ManyToManyField('planner.ProgramPhase')
 
 	
 	def __str__(self):
@@ -24,6 +24,7 @@ class Program(models.Model): #categories boxing,cricket,yoga,gym
 
 
 class ProgramPhase(models.Model): #if selected cricket toh idhr different programs in cricket
+	program_id = models.ForeignKey(Program,on_delete=models.CASCADE)
 	order = models.PositiveIntegerField(blank = False, null = False)
 	weeks_duration = models.PositiveIntegerField(blank = False, null = False)
 	workout = models.ForeignKey('planner.Workout', null = True, on_delete = models.SET_NULL)
@@ -36,10 +37,10 @@ class ProgramPhase(models.Model): #if selected cricket toh idhr different progra
 
 
 class Workout(models.Model): #on program in cricket ka workout ka name nad image
-	
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	image = models.ImageField(upload_to = 'planner/workout/', null = False, blank = False)
-	day = models.ManyToManyField('planner.WorkoutDay')
+	# day = models.ManyToManyField('planner.WorkoutDay')
+	workout_day = models.ForeignKey('planner.WorkoutDay',on_delete=models.CASCADE)
 
 	
 	def __str__(self):
@@ -51,7 +52,7 @@ class WorkoutDay(models.Model): #days of the week for that workout
 	DAY = (('MO', 'Monday'), ('TU', 'Tuesday'), ('WE', 'Wednesday'), ('TH', 'Thursday'), ('FR', 'Friday'),
 	('SA', 'Saturday'), ('SU', 'Sunday'),)
 
-	
+	# workout = models.ForeignKey(Workout,on_delete=models.CASCADE)
 	day_of_week = models.CharField(max_length = 2, choices = DAY, default = 'MO')
 	session = models.ForeignKey('planner.WorkoutSession', null = False, on_delete = models.CASCADE)
 
@@ -66,7 +67,7 @@ class WorkoutSession(models.Model): #per workout layout
 	summary = models.TextField(null = False, blank = True, max_length = 1000)
 	recommendations = models.TextField(null = False, blank = True, max_length = 1000)
 	motivation_quotes = models.TextField(null = False, blank = True, max_length = 1000)
-	exercises = models.ManyToManyField('gym.ExerciseSet')
+	# exercises = models.ManyToManyField('gym.ExerciseSet')
 
 	
 	def __str__(self):

@@ -4,13 +4,14 @@ from django.db import models
 
 class Exercise(models.Model): #exercise detail
 	# Attributes
+	workout_session = models.ForeignKey('planner.WorkoutSession',on_delete=models.CASCADE)
 	name = models.CharField(null = False, blank = False, max_length = 100)
 	description = models.TextField(null = False, blank = True, max_length = 1000)
 	instructions = models.TextField(null = False, blank = True, max_length = 1000)
 	tips = models.TextField(null = False, blank = True, max_length = 1000)
 	image = models.ImageField(upload_to = 'gym/exercises/', null = False, blank = True)
-	primary_muscles = models.ManyToManyField('body.Muscle', related_name = 'primary_muscles')
-	secondary_muscles = models.ManyToManyField('body.Muscle', related_name = 'secondary_muscles', blank = True)
+	primary_muscles = models.ForeignKey('body.Muscle', related_name = 'primary_muscles',on_delete=models.CASCADE)
+	secondary_muscles = models.ForeignKey('body.Muscle', related_name = 'secondary_muscles',on_delete=models.CASCADE)
 	url = models.URLField(null=True,blank=True)
 	# Methods
 	def __str__(self):
@@ -19,8 +20,8 @@ class Exercise(models.Model): #exercise detail
 
 class ExerciseSet(models.Model): #the variations in exercis
 	# Attributes
-	exercise = models.ForeignKey('gym.Exercise', null = False, blank = False, on_delete = models.CASCADE)
-	sets = models.ManyToManyField('gym.Set', related_name = 'sets')
+	exercise = models.ForeignKey('gym.Exercise', null = False, blank = False,on_delete=models.CASCADE)
+	sets = models.ForeignKey('gym.Set', related_name = 'sets',on_delete=models.CASCADE)
 	number_of_sets = models.IntegerField(null = False, blank = False, default = 3)
 
 	# Methods

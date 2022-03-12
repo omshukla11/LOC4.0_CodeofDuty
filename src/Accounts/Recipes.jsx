@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { url } from '../url'
-import { Grid } from '@mui/material'
+import { Grid ,Card} from '@mui/material'
 import { Paper } from '@mui/material'
 import { motion } from "framer-motion";
 
@@ -20,7 +20,14 @@ const Recipes = () => {
             })
     })
     return (
+        <Card sx={{boxShadow:"none"}}>
         <Grid style={{ padding: "20px" }} container spacing={2}>
+            <Grid item xs={12} sx={{ fontSize: "1.6rem", fontWeight: "750" }}>
+                Recipes
+            </Grid>
+            <Grid item xs={12}>
+                
+            </Grid>
             {arr.map((x, index) => {
                 return (
                     <Grid item sm={6} md={3}>
@@ -32,7 +39,17 @@ const Recipes = () => {
                             component={motion.div}
                             elevation={3}
                         >
-                            <center>
+                            <Card style={{boxShadow:"none"}}>
+                            <div class="box box-2">
+                            <div class="first">
+                            </div>
+                            <div class="second">
+                            <p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+                            <p><a href="#">Find out more</a></p>
+                            </div>
+                            </div>
+                        </Card>
+                           {/*} <center>
                                 <img
                                     width="150"
                                     height="150"
@@ -64,7 +81,7 @@ const Recipes = () => {
                             <span style={{ color: "red" }}>
                                 {x.products_ordered}/{x.min_order}
                             </span>
-
+                            *
                             {/* <Badge color="primary" badgeContent={4}>
           <ShoppingCart />{" "}
         </Badge>
@@ -75,6 +92,7 @@ const Recipes = () => {
                 );
             })}
         </Grid>
+        </Card>
     )
 }
 

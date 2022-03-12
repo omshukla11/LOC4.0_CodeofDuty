@@ -14,6 +14,7 @@ import Demo from './Accounts/demo';
 import SimpleForm from './Accounts/Chatbot';
 import { Button, Card } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
+import { useEffect, useState } from 'react';
 // import CustomizedDialogs from './chatty';
 import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
@@ -42,10 +43,54 @@ import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
 import Recipes from './Accounts/Recipes';
 import Events from './Accounts/Events';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import Dashboard2 from './Dashboard/Dashboard';
+
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
 function MyApp() {
+
+  const { SetCookie, DeleteCookie, hasCookie } = require('../../Utility/CookieManager.js');
+  const CLIENT_ID = '647346603249-ethuif0tbpu3t2vf2r3aofph91odbovu.apps.googleusercontent.com';
+
+  const [user, setUser] = useState({ haslogin: false, accessToken: '' });
+
+  useEffect(() => {
+    const cookieObject = hasCookie();
+    if (cookieObject.haslogin) {
+      setUser({
+        ...cookieObject
+      });
+    }
+  }, []);
+  function login(response) {
+    console.log(response);
+    if (response.wc.access_token) {
+      setUser({
+        ...response.profileObj,
+        haslogin: true,
+        accessToken: response.wc.access_token
+      })
+    }
+    SetCookie({
+      ...response.profileObj,
+      accessToken: response.wc.access_token
+    });
+  }
+
+  function logout(response) {
+    setUser({ haslogin: false, accessToken: '' });
+    DeleteCookie(['accessToken', 'email', 'givenName', 'familyName', 'imageUrl', 'name', 'googleId']);
+  }
+
+  function handleLoginFailure(response) {
+    console.log('Failed to log in')
+  }
+  function handleLogoutFailure(response) {
+    console.log('Failed to log out')
+  }
+
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   useEffect(() => {
@@ -61,7 +106,7 @@ function MyApp() {
         bgcolor: 'background.default',
         color: 'text.primary',
         borderRadius: 1,
-        padding:'0%',
+        padding: '0%',
         p: 3,
       }}
       fullWidth
@@ -167,7 +212,7 @@ export default function ToggleColorMode() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-      
+
         <MyApp />
         <Router>
           <div className="App">
@@ -190,8 +235,29 @@ export default function ToggleColorMode() {
                 <Contactus />
               </Route>
               <Route path="/Events">
-              <NavBar mode={mode}/>
-                <Events/>
+                <NavBar mode={mode} />
+                <Events />
+              </Route>
+              <Route path='/gfit'>
+                {user.haslogin ?
+                  <GoogleLogout
+                    clientId={CLIENT_ID}
+                    buttonText='Logout'
+                    onLogoutSuccess={logout}
+                    onFailure={handleLogoutFailure}
+                  >
+                  </GoogleLogout> : <GoogleLogin
+                    clientId={CLIENT_ID}
+                    buttonText='Login'
+                    onSuccess={login}
+                    onFailure={handleLoginFailure}
+                    cookiePolicy={'single_host_origin'}
+                    responseType='code,token'
+                    scope={'https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read'}
+                  />
+                }
+                <Dashboard2 user={user} />
+
               </Route>
               {/* <Route path='/chat'>
                 <CustomizedDialogs />
@@ -205,7 +271,7 @@ export default function ToggleColorMode() {
                 <Feedback />
               </Route>
               <Route path='/recipes'>
-                <Recipes/>
+                <Recipes />
               </Route>
               <Route path="/videochat">
                 <VideoChat />
@@ -220,8 +286,8 @@ export default function ToggleColorMode() {
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
                   sx={{ position: 'fixed', bottom: 16, right: 16 }}
-                  icon={<SpeedDialIcon  />}
-                  
+                  icon={<SpeedDialIcon />}
+
                 >
                   <SpeedDialAction
                     key='Bot'
@@ -266,6 +332,6 @@ export default function ToggleColorMode() {
   );
 }
 
-	
-	
-	
+
+
+

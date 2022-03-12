@@ -7,7 +7,7 @@ import Publicity from './Publicity'
 import Specs from './Specs'
 import Sport from './Sports'
 
-const Dashboard = () => {
+const Dashboard2 = () => {
     return (
         <Card style={{ transform: 'translateY(-32px)' }} >
             <Hero />
@@ -20,4 +20,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Dashboard2

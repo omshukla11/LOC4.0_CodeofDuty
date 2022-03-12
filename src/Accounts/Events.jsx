@@ -2,9 +2,22 @@ import React from 'react'
 import {Grid , Card} from '@mui/material'
 import './accounts.css';
 import './card.scss';
+import axios from 'axios'
+import { url } from '../url'
 import VideoPlayer from 'react-player'
 import ReactPlayer from 'react-player';
 const Events = () => {
+    {/* const [arr, setarr] = useState([]);
+    useEffect(() => {
+        axios.get(url + '/diet/all-recipes/')
+            .then((res) => {
+                console.log(res.data);
+                setarr(res.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            })
+    })*/}
   return (
     <div>
         <Card>

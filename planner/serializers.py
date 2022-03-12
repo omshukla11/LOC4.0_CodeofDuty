@@ -30,4 +30,8 @@ class WorkoutSessionSerializer(serializers.ModelSerializer):
         model = WorkoutSession
         fields = '__all__'
 
-        
+class UserProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProgram
+        fields = '__all__'
+

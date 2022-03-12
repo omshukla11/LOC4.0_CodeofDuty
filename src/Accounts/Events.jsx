@@ -3,6 +3,8 @@ import {Grid , Card} from '@mui/material'
 import './accounts.css';
 import './card.scss';
 import VideoPlayer from 'react-player'
+
+import ReactPlayer from 'react-player';
 const Events = () => {
   return (
     <div>
@@ -25,6 +27,36 @@ const Events = () => {
 		            </figure>
 	                </div>
                     </Card>
+                </Grid>
+                <Grid item xs={12} md={3} sm={6}>
+                <Card sx={{ padding:"2px"}}>
+                  <div class="card-normal">
+                  <div class="card-header">
+                  <ReactPlayer className='my-3 p-3 rounded text-center'
+                        width = '100%' height='350px'
+                        style={{justifyContent: "center"}}
+                        controls
+                        url="https://www.youtube.com/watch?v=ckiaNqOrG5U"
+                        onReady={() => console.log('onReady , callback')} />
+                  </div>
+                  <div class="card-body">
+                  <span class="tag tag-pink">Design</span>
+                  <h4>
+                    10 Rules of Dashboard Design
+                  </h4>
+                  <p>
+                    Dashboard Design Guidelines
+                  </p>
+                  <div class="user">
+                  <img src="https://studyinbaltics.ee/wp-content/uploads/2020/03/3799Ffxy.jpg" alt="user" />
+                  <div class="user-info">
+                  <h5>Carrie Brewer</h5>
+                  <small>1w ago</small>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                </Card>
                 </Grid>
                 </Grid>
                 <Grid item xs={12}>

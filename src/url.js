@@ -1,3 +1,3 @@
-const url = 'http://127.0.0.1:8000/'
+var url = 'https://c1b8-49-32-208-107.ngrok.io';
 
-export {url};
+export {url}

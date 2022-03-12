@@ -40,6 +40,7 @@ import { useEffect } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
+import Recipes from './Accounts/Recipes';
 import Events from './Accounts/Events';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
@@ -202,6 +203,9 @@ export default function ToggleColorMode() {
                 <NavBar mode={mode} />
 
                 <Feedback />
+              </Route>
+              <Route path='/recipes'>
+                <Recipes/>
               </Route>
               <Route path="/videochat">
                 <VideoChat />

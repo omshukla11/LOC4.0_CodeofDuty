@@ -39,6 +39,7 @@ import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
 import { useEffect } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
+import "./Dashboard/Basic.css"
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
@@ -209,10 +210,9 @@ export default function ToggleColorMode() {
 
                 <SpeedDial
                   ariaLabel="SpeedDial basic example"
-                 
                   sx={{ position: 'fixed', bottom: 16, right: 16 }}
-                  icon={<SpeedDialIcon   />}
-
+                  icon={<SpeedDialIcon  />}
+                  
                 >
                   <SpeedDialAction
                     key='Bot'

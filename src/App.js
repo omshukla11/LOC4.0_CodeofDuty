@@ -40,11 +40,12 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
 import Recipes from './Accounts/Recipes';
-import Profile from './Player_profile/Profile';
+//import Profile from './Player_profile/Profile';
 import Events from './Accounts/Events';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import Dashboard2 from './Component/Dashboard/Dashboard';
-import Navbar_prof from './Player_profile/Navbar_prof';
+import Dashboard2 from './Dashboard/Dashboard';
+import Navbar_prof  from './Player_profile/Navbar_prof';
+import Profile from './Player_profile/Profile';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
@@ -280,8 +281,7 @@ export default function ToggleColorMode() {
               <Route path='/profile'>
                 <NavBar mode={mode} />
 
-                <Navbar_prof />
-
+                <Navbar_prof/>
                 <Profile />
               </Route>
               <Route path="/videochat">

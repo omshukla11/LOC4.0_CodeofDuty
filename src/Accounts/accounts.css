@@ -58,7 +58,7 @@
 
 
 .box-2:hover {
-  background: linear-gradient(rgba(134, 89, 89, 0.88),rgba(134, 89, 89, 0.74)), url(https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?w=940&h=650&auto=compress&cs=tinysrgb) no-repeat center; 
+  background: linear-gradient(rgba(134, 89, 89, 0.88),rgba(134, 89, 89, 0.74)), no-repeat center; 
   transition: background 2s;
 }
 
@@ -83,7 +83,7 @@
   border: 1px solid #fff;
 }
 .box-2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.2)),url(https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?w=940&h=650&auto=compress&cs=tinysrgb) no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.2)) no-repeat center;
   background-size: cover; 
   margin-top: -15px;
 }

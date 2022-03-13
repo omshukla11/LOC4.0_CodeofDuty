@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
+    path('YTurl/<int:pk>/',ExerciseUrlView.as_view(), name="index"),
     path('Exercise/<int:pk>/<int:ws_id>/', ExerciseView.as_view(), name='Exercise'),
     path('ExerciseSet/<int:pk>/<int:ex_id>/', ExerciseSetView.as_view(), name='ExerciseSet'),
     path('Set/<int:pk>/', SetView.as_view(), name='Set'),

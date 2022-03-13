@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = TRUE
 # CSRF_COOKIE_DOMAIN = 'e038-1-22-101-132.ngrok.io'
 CSRF_TRUSTED_ORIGINS = ['https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io']
+YOUTUBE_DATA_API_KEY=config('YOUTUBE_DATA_API_KEY')
 
 # Application definition
 

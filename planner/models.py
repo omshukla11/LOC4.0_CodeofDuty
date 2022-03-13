@@ -60,11 +60,11 @@ class Workout(models.Model): #on program in cricket ka workout ka name nad image
 
 class WorkoutDay(models.Model): #days of the week for that workout
 	
-	DAY = (('MO', 'Monday'), ('TU', 'Tuesday'), ('WE', 'Wednesday'), ('TH', 'Thursday'), ('FR', 'Friday'),
-	('SA', 'Saturday'), ('SU', 'Sunday'),)
+	DAY = (('Monday', 'Monday'), ('Tuesday', 'Tuesday'), ('Wednesday', 'Wednesday'), ('Thursday', 'Thursday'), ('Friday', 'Friday'),
+	('Saturday', 'Saturday'), ('Sunday', 'Sunday'),)
 
 	user_prog_id = models.ForeignKey(UserProgram,on_delete=models.CASCADE,null=True,blank=True)
-	day_of_week = models.CharField(max_length = 2, choices = DAY, default = 'MO')
+	day_of_week = models.CharField(max_length = 100, choices = DAY, default = 'MO')
 	session = models.ForeignKey('planner.WorkoutSession', null = False, on_delete = models.CASCADE)
 
 	

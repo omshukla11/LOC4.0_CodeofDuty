@@ -11,6 +11,8 @@ from django.http.response import Http404, HttpResponse, JsonResponse
 from django.contrib.auth import get_user_model
 from rest_framework.decorators import api_view
 from planner.models import *
+import requests
+from isodate import parse_duration
 
 
 class ExerciseView(generics.ListAPIView):
@@ -29,6 +31,56 @@ class ExerciseView(generics.ListAPIView):
         print(serializer.data[0])
         return JsonResponse(serializer.data,safe = False, status = status.HTTP_200_OK)
 
+class ExerciseUrlView(APIView):
+
+    def get(self,request,pk):
+        try:
+            ex = Exercise.objects.get(id=pk)
+        except Exercise.DoestNotExist:
+            content = {'NO SUCH EXERCISE'}
+            return JsonResponse(content,status = status.HTTP_404_NOT_FOUND)
+        search_url = 'https://www.googleapis.com/youtube/v3/search'
+        video_url = 'https://www.googleapis.com/youtube/v3/videos'
+
+        search_params = {
+            'parts': 'snippet',
+            'q':ex.description,
+            'key': settings.YOUTUBE_DATA_API_KEY,
+            'type':'video',
+
+        }
+
+        r = requests.get(search_url,params=search_params)
+        video_ids = []
+        results = r.json()['items']
+        for result in results:
+            video_ids.append(result['id']['videoId'])
+        # api_Data = r.json()
+        video_params = {
+        'key' : settings.YOUTUBE_DATA_API_KEY,
+        'part' : 'snippet, contentDetails',
+        'id' : ','.join(video_ids)
+        }
+        rv = requests.get(video_url, params=video_params)
+        videos = []
+        resultsv = rv.json()['items']
+        for resultv in resultsv:
+            video_data = {
+            'title' : resultv['snippet']['title'],
+            'id':resultv['id'],
+            'duration':parse_duration(resultv['contentDetails']['duration']),
+            'url':resultv['snippet']['thumbnails']['high']['url']
+            }
+            videos.append(video_data)
+
+        video_params = {
+            'key':settings.YOUTUBE_DATA_API_KEY,
+            'part':'snippet',
+            'id':','.join(video_ids)
+        }
+        # r=req.get(video_url,params=video_params)
+        # print(r.json())
+        return JsonResponse({"message": videos},status = status.HTTP_200_OK)
 
 class ExerciseSetView(generics.ListAPIView):
     serializer_class = ExerciseSetSerializer

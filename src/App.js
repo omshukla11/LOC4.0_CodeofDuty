@@ -37,14 +37,13 @@ import { SpeedDialIcon } from '@mui/material';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import MissedVideoCallIcon from '@mui/icons-material/MissedVideoCall';
-import { useEffect } from 'react';
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
 import Recipes from './Accounts/Recipes';
-import Profile from './Player_profile/Profile';
+//import Profile from './Player_profile/Profile';
 import Events from './Accounts/Events';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+//import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import Dashboard2 from './Dashboard/Dashboard';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
@@ -52,7 +51,7 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 function MyApp() {
 
-  const { SetCookie, DeleteCookie, hasCookie } = require('../../Utility/CookieManager.js');
+  {/*const { SetCookie, DeleteCookie, hasCookie } = require('../../Utility/CookieManager.js');
   const CLIENT_ID = '647346603249-ethuif0tbpu3t2vf2r3aofph91odbovu.apps.googleusercontent.com';
 
   const [user, setUser] = useState({ haslogin: false, accessToken: '' });
@@ -91,7 +90,7 @@ function MyApp() {
   function handleLogoutFailure(response) {
     console.log('Failed to log out')
   }
-
+*/}
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   useEffect(() => {
@@ -242,7 +241,7 @@ export default function ToggleColorMode() {
                 <NavBar mode={mode} />
                 <Events />
               </Route>
-              <Route path='/gfit'>
+              {/*<Route path='/gfit'>
                 {user.haslogin ?
                   <GoogleLogout
                     clientId={CLIENT_ID}
@@ -277,9 +276,9 @@ export default function ToggleColorMode() {
               <Route path='/recipes'>
                 <Recipes />
               </Route>
-              <Route path='/profile'>
+              {/*<Route path='/profile'>
                 <Profile/>
-              </Route>
+            </Route>*/}
               <Route path="/videochat">
                 <VideoChat />
               </Route>

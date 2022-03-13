@@ -72,7 +72,7 @@ class SimpleForm extends Component {
             <ThemeProvider theme={theme}>
                 <ChatBot
                     headerTitle="Hello Guys 😁"
-                    // speechSynthesis={{ enable: true, lang: 'en' }}
+                    speechSynthesis={{ enable: true, lang: 'en' }}
                     steps={[
                         {
                             id: '1',

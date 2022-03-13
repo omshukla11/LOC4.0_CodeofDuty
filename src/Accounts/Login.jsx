@@ -150,7 +150,7 @@ const Login = () => {
             <Card>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
-                        <img src={login} alt="signup" style={{ width: "100%", height: "100%" }} />
+                        <img src='https://images.pexels.com/photos/5069143/pexels-photo-5069143.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt="signup" style={{ width: "100%", height: "100%" }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container>
@@ -222,11 +222,13 @@ const Login = () => {
                                                 sx={{
                                                     backgroundColor: "#f2cf07",
                                                     backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
-                                                }}>
-                                                Submit
+                                                }}
+                                                ><Link to="/dashboard" style={{textDecoration: "none", color:"black"}}>
+                                                Submit</Link>
                                             </Button>
                                         </Grid>
                                         <Grid item xs={12} sx={{ fontSize: "1.2rem", fontWeight: "550" }}>
+                                            
                                             <Link to='/signup' style={{ textDecoration: "none", color: "#f2cf07" }}> Don't have an account ? Sign Up</Link>
                                         </Grid>
                                     </Grid>

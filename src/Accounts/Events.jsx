@@ -440,7 +440,7 @@ return (
                                         <Card sx={{ boxShadow: "none" ,textAlign:"left"}}>
                                             <div class="card">
                                                 <figure class="card__thumb">
-                                                    <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" class="card__image" style={{width:"50vh" , height:"50vh"}} />
+                                                    <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" class="card__image" style={{width:"50vh" , height:"50vh"}} />
                                                     <figcaption class="card__caption">
                                                         <h2 class="card__title" style={{fontSize:"1.65rem" , fontWeight:"650"}}>{x.name}</h2>
                                                         <p class="card__snippet" style={{fontSize:"1.65rem" , fontWeight:"650" ,textShadow:"2px 2px #000"}}>{x.summary}</p>
@@ -462,7 +462,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"100%" , height:"100%"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"100%" , height:"100%"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -485,7 +485,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"100%" , height:"100%"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"100%" , height:"100%"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -583,7 +583,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none",textAlign:"left" , height:"98vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -601,7 +601,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none",textAlign:"left", height:"98vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -619,7 +619,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none",textAlign:"left", height:"98vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -637,7 +637,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none",textAlign:"left", height:"98vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -660,7 +660,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none", height:"107vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -678,7 +678,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none", height:"107vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -695,7 +695,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none", height:"107vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 
@@ -712,7 +712,7 @@ return (
                             return (
                         <Grid item xs={12} md={3} sm={4}>
                         <Card sx={{boxShadow:"none", height:"107vh"}}>
-                        <img src={`https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
+                        <img src={`https://c1b2-2409-4040-d89-2d86-785b-28df-bb0a-1612.ngrok.io`+x.image} alt="Picture by Kyle Cottrell" style={{width:"50vh" , height:"50vh"}} />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                              {x.name} 

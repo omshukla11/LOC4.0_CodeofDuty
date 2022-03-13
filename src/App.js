@@ -40,11 +40,11 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Dashboard/Basic.css"
 import Recipes from './Accounts/Recipes';
-//import Profile from './Player_profile/Profile';
+import Profile from './Player_profile/Profile';
 import Events from './Accounts/Events';
-//import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import Dashboard2 from './Dashboard/Dashboard';
-
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import Dashboard2 from './Component/Dashboard/Dashboard';
+import Navbar_prof from './Player_profile/Navbar_prof';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
@@ -273,17 +273,23 @@ export default function ToggleColorMode() {
                 <Feedback />
               </Route>
               <Route path='/recipes'>
+                <NavBar mode={mode} />
+
                 <Recipes />
               </Route>
-              {/*<Route path='/profile'>
-                <Profile/>
-            </Route>*/}
-              <Route path="/videochat">
+              <Route path='/profile'>
+                <NavBar mode={mode} />
+
+                <Navbar_prof />
+
+                <Profile />
+              </Route>
+              {/* <Route path="/videochat">
                 <VideoChat />
               </Route>
               <Route path="/video">
                 <Video />
-              </Route>
+              </Route> */}
               <Route path="/dashboard">
                 <NavBar mode={mode} />
                 <Dashboard />
@@ -300,11 +306,14 @@ export default function ToggleColorMode() {
                     tooltipTitle='Bot'
                     onClick={handleClickOpen}
                   />
+                  {/* <a href='https://2c70-2409-4040-d89-2d86-184-c948-9c4-d769.ngrok.io/video/'> */}
                   <SpeedDialAction
                     key='Video call'
                     icon={<MissedVideoCallIcon />}
                     tooltipTitle='Video call'
+                    onClick={() => {window.location.replace('https://2c70-2409-4040-d89-2d86-184-c948-9c4-d769.ngrok.io/video/') }}
                   />
+                  {/* </a> */}
 
                   <SpeedDialAction
                     key='Chat'

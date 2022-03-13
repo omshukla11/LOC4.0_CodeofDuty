@@ -281,11 +281,11 @@ const Signup = () => {
             <Card>
                 <Grid container spacing={3} style={{ overflow: "hidden" }}>
                     <Grid item xs={12} md={6}>
-                        <img src={signup} alt="signup" style={{ width: "100%", height: "100%" }} />
+                        <img src="https://images.pexels.com/photos/5739118/pexels-photo-5739118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="signup" style={{ width: "100%",marginTop:"-55vh" }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container>
-                            <Grid item xs={12} style={{ padding: "5vh" }}>
+                            <Grid item xs={12} style={{ padding: "5vh" ,height: "20vh"}}>
                                 <form onSubmit={formik.handleSubmit} autoComplete="off" style={{ width: "100%" }}>
                                     <Grid container spacing={3}>
                                         <Grid item xs={12} sx={{ textAlign: "left", fontSize: "1.6rem", fontWeight: "750" }}>

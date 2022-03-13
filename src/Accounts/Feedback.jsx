@@ -9,7 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 import { textAlign } from '@mui/system';
 import { deepOrange, deepPurple } from '@mui/material/colors';
-import feedback from '../Images/Feedbackimage.png';
+import feedback from '../Images/2667824.jpg';
 const validationSchema = yup.object({
   email: yup
     .string('Enter your Email')
@@ -246,7 +246,7 @@ const Feedback = () => {
               Question and Answer
             </Grid>
             <Grid item xs={12}>
-              <img src={feedback} style={{ width: "100%", filter: 'invert(1)' }} />
+              <img src={feedback} style={{ width: "100%" ,borderRadius:"10px" , marginRight:"2vh" }} />
             </Grid>
             <Grid item xs={12} >
               <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} style={{ marginBottom: "2vh" }} sx={{ position: "unset", boxShadow: "none" }} >

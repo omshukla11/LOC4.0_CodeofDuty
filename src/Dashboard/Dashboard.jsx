@@ -6,8 +6,16 @@ import Hero from './Hero'
 import Publicity from './Publicity'
 import Specs from './Specs'
 import Sport from './Sports'
+import { useEffect } from "react";
+
 
 const Dashboard2 = () => {
+    const onTop = () => {
+        window.scrollTo(0, 0);
+    };
+    useEffect(() => {
+        onTop();
+    }, []);
     return (
         <Card style={{ transform: 'translateY(-32px)' }} >
             <Hero />

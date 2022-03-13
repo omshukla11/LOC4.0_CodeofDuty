@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import CardRowComponent from '../CardRowComponent/CardRowComponent.js';
 import UserCard from '../UserCard/UserCard.js';
 import ChartComponent from '../ChartComponent/ChartComponent.js';
-import { Container } from '@mui/material';
+import { Card, Container } from '@mui/material';
 // import '../../Utility/DataRequestManager'
 import { Grid } from '@mui/material';
 const { getRequestHeaders, getWeeklyData } = require('../Utility/DataRequestManager');
@@ -23,39 +23,38 @@ const Dashboard2 = (props) => {
   getWeeklyData(timeRightNow, requestHeaders, callBack, weekData);
 
   return (
-    <div>
+    <Card>
       <Container className="p-3">
-        <Grid container spacing={1} style={{ backgroundColor: "#272727", color: '#ffffff' }}>
-          <h1 className="header">Welcome To Fit Me Up Visualizer</h1>
+        <Grid container spacing={1} style={{ backgroundColor: "#272727", color: '#ffffff', padding: '5%' }}>
+          <h1 className="header">GOOGLE FIT</h1>
           {props.user.haslogin ?
-            null : <div>
+            null : <div style={{position:'relative',left:'75%',top:'-30px'}}>
               <h3> Please login</h3>
             </div>
           }
         </Grid>
+        <br />
         {props.user.haslogin ?
           <div>
             <Grid container spacing={0}>
-              <Grid item xs={6}>
+              <Grid item xs={12} style={{color:'red'}}>
                 <UserCard user={props.user} />
               </Grid>
-                <div>
-                  <br></br>
-                </div>
-              <Grid item xs={6}>
+              <br /><br/>
+              <Grid item xs={12}>
                 <CardRowComponent user={props.user} selected={selected} data={weekData} />
               </Grid>
-                <div>
-                  <br></br>
-                </div>
-              <Grid item xs={6}>
-                <CardRowComponent user={props.user} selected={selected} data={weekData} />
+              {/* <div>
+                <br></br>
+              </div> */}
+              <Grid item xs={12}>
+                <ChartComponent user={props.user} selected={selected} data={weekData} />
               </Grid>
             </Grid>
           </div> : null
         }
       </Container>
-    </div>
+    </Card>
   );
 }
 

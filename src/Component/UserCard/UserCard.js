@@ -5,7 +5,12 @@ import CardContent from '@mui/material/CardContent';
 const UserCard = (props) => {
   const style = {
     backgroundColor: '#272727',
-    color: '#ffffff'
+    color: '#ffffff',
+      border:"3px solid", borderImageSource: 'linear-gradient(315deg, #f2cf07 0%, #55d284 74%)' , 
+      borderImageSlice:"1" , fontSize:"1rem" , fontWeight:"550",boxShadow:"none",padding:"2px",
+      '&:hover' :{ backgroundColor:"#f2cf07",
+      backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)" , fontSize:"1rem" , fontWeight:"550" 
+      }
   };
   return (
     <Card variant="outlined" style={style}>

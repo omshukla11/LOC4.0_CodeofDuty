@@ -2,28 +2,31 @@ import React from 'react';
 import { render } from 'react-dom';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import axios from 'axios';
+import { url } from '../url'
 
 const options = {
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Browser market shares. January, 2018'
+        text: 'OverAll Progress'
     },
     subtitle: {
-        text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
+        text: ''
     },
     accessibility: {
         announceNewData: {
             enabled: true
         }
     },
-    xAxis: {
+    xAxis: [{
+        
         type: 'category'
-    },
+    }],
     yAxis: {
         title: {
-            text: 'Total percent market share'
+            text: 'Total percent '
         }
 
     },
@@ -47,38 +50,38 @@ const options = {
 
     series: [
         {
-            name: "Browsers",
+            name: "All ",
             colorByPoint: true,
             data: [
                 {
-                    name: "Chrome",
+                    name: "Gym",
                     y: 62.74,
-                    drilldown: "Chrome"
+                    drilldown: "Gym"
                 },
                 {
-                    name: "Firefox",
+                    name: "Boxing",
                     y: 10.57,
-                    drilldown: "Firefox"
+                    drilldown: "Boxing"
                 },
                 {
-                    name: "Internet Explorer",
+                    name: "Yoga",
                     y: 7.23,
-                    drilldown: "Internet Explorer"
+                    drilldown: "Yoga"
                 },
                 {
-                    name: "Safari",
+                    name: "Cricket",
                     y: 5.58,
-                    drilldown: "Safari"
+                    drilldown: "Cricket"
                 },
                 {
-                    name: "Edge",
+                    name: "Flexibility",
                     y: 4.02,
-                    drilldown: "Edge"
+                    drilldown: "Flexibility"
                 },
                 {
-                    name: "Opera",
+                    name: "Fitness Routine",
                     y: 1.92,
-                    drilldown: "Opera"
+                    drilldown: "Fitness Routine"
                 },
                 {
                     name: "Other",
@@ -96,8 +99,8 @@ const options = {
         },
         series: [
             {
-                name: "Chrome",
-                id: "Chrome",
+                name: "Gym",
+                id: "Gym",
                 data: [
                     [
                         "v65.0",
@@ -174,8 +177,8 @@ const options = {
                 ]
             },
             {
-                name: "Firefox",
-                id: "Firefox",
+                name: "Boxing",
+                id: "Boxing",
                 data: [
                     [
                         "v58.0",
@@ -220,8 +223,8 @@ const options = {
                 ]
             },
             {
-                name: "Internet Explorer",
-                id: "Internet Explorer",
+                name: "Yoga",
+                id: "Yoga",
                 data: [
                     [
                         "v11.0",
@@ -242,8 +245,8 @@ const options = {
                 ]
             },
             {
-                name: "Safari",
-                id: "Safari",
+                name: "Cricket",
+                id: "Cricket",
                 data: [
                     [
                         "v11.0",
@@ -272,8 +275,8 @@ const options = {
                 ]
             },
             {
-                name: "Edge",
-                id: "Edge",
+                name: "Flexibility",
+                id: "Flexibility",
                 data: [
                     [
                         "v16",
@@ -294,8 +297,8 @@ const options = {
                 ]
             },
             {
-                name: "Opera",
-                id: "Opera",
+                name: "Fitness Routine",
+                id: "Fitness Routine",
                 data: [
                     [
                         "v50.0",

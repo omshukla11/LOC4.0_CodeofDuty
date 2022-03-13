@@ -21,7 +21,7 @@ const Events = () => {
             })
     })
     return (
-        <div>
+        <div style={{ transform: 'translateY(-32px)' }}>
             <Card>
                 <Grid container>
                     <Grid item xs={12}>

@@ -10,7 +10,6 @@ import { ThemeProvider as chatT } from 'styled-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Contactus from './Accounts/Contactus';
-import Demo from './Accounts/demo';
 import SimpleForm from './Accounts/Chatbot';
 import { AppBar, Button, Card } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
@@ -45,6 +44,7 @@ import Profile from './Player_profile/Profile';
 import Events from './Accounts/Events';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import Dashboard2 from './Component/Dashboard/Dashboard';
+import Navbar_prof from './Player_profile/Navbar_prof';
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
@@ -227,12 +227,6 @@ export default function ToggleColorMode() {
               <Route path="/Signup">
                 <Signup />
               </Route>
-              <Route path="/demo">
-                <Demo />
-              </Route>
-              {/* <Route path='/googlefit'>
-                <GoogleFit/>
-              </Route> */}
               <Route path="/contact us">
                 <NavBar mode={mode} />
 
@@ -263,7 +257,7 @@ export default function ToggleColorMode() {
                     />
                   }
                 </AppBar>
-
+                <Navbar_prof />
                 <Dashboard2 user={user} />
 
               </Route>
@@ -282,6 +276,10 @@ export default function ToggleColorMode() {
                 <Recipes />
               </Route>
               <Route path='/profile'>
+              <NavBar mode={mode} />
+
+                <Navbar_prof />
+
                 <Profile />
               </Route>
               <Route path="/videochat">

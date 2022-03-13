@@ -15,6 +15,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 const pages = [
+    "Signup",
+    "Login",
     "Dashboard",
     "Profile",
     "Feedback",

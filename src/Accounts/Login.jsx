@@ -37,6 +37,7 @@ import * as yup from 'yup';
 import { Link } from "react-router-dom";
 import { FormatAlignLeftSharp } from "@mui/icons-material";
 import { url } from '../url'
+
 const validationSchema = yup.object({
     email: yup
         .string('Enter your Email')
@@ -146,6 +147,9 @@ const Login = () => {
 
     //     },
     // });
+
+    const history = useHistory();
+
     return (
         <div>
             <Card>
@@ -219,20 +223,50 @@ const Login = () => {
 
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12}>
-                                            <Button variant="contained" fullWidth type="submit"
+                                            <Button
+                                                type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{
+                                                backgroundColor: "#f2cf07",
+                                                backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
+                                                }}
                                                 component={motion.div}
                                                 whileHover={{
+                                                    backgroundColor: "#fe6c77",
                                                     scale: 1.08,
                                                     textShadow: "0 0 8px rgb(255,255,255)",
                                                     transition: { duration: 0.3 },
                                                 }}
-                                                sx={{
-                                                    backgroundColor: "#f2cf07",
-                                                    backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
-                                                }}
-                                                >
+                                                onClick={(e) => {
+
+                                                    axios.get(url + 'accounts/login/')
+                                                        .then(function (response) {
+                                                            console.log(JSON.stringify(response.data));
+                                                            if (response.data.teacher) {
+                                                                history.push("/dashboard");
+                                                            }
+                                                        })
+                                                        .catch(function (error) {
+                                                            console.log(error);
+                                                            Swal.fire({
+                                                                icon: "error",
+                                                                title: "Invalid",
+                                                                text: "Please try again ",
+                                                                showClass: {
+                                                                    popup: "animate__animated animate__fadeInDown",
+                                                                },
+                                                                hideClass: {
+                                                                    popup: "animate__animated animate__fadeOutUp",
+                                                                },
+                                                            });
+                                                        });
+                                                }
+                                                }
+                                            >
                                                 Submit
                                             </Button>
+
                                         </Grid>
                                         <Grid item xs={12} sx={{ fontSize: "1.2rem", fontWeight: "550" }}>
                                             <Link to='/signup' style={{ textDecoration: "none", color: "#f2cf07" }}> Don't have an account ? Sign Up</Link>
@@ -270,7 +304,7 @@ const Login = () => {
                                                                             title: "We have sent a link to your mail",
                                                                             icon: "success",
                                                                         });
-                                                                        <Link to="/dashboard"/>
+                                                                        <Link to="/dashboard" />
                                                                     })
                                                                     .catch((e) => {
                                                                         Swal.fire({
@@ -307,9 +341,9 @@ const Login = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Card>
-            
-{/*// definition
+            </Card >
+
+            {/*// definition
     const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
             width: drawerWidth,
@@ -833,7 +867,7 @@ const Login = () => {
             </Grid>
 
                                                     </ThemeProvider>*/}
-        </div>
+        </div >
     )
 }
 

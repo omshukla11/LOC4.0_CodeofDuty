@@ -43,8 +43,8 @@ import Recipes from './Accounts/Recipes';
 import Profile from './Player_profile/Profile';
 import Events from './Accounts/Events';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import Dashboard2 from './Dashboard/Dashboard';
 import Navbar_prof  from './Player_profile/Navbar_prof';
+import Dashboard2 from './Component/Dashboard/Dashboard'
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 
@@ -310,7 +310,7 @@ export default function ToggleColorMode() {
                     key='Video call'
                     icon={<MissedVideoCallIcon />}
                     tooltipTitle='Video call'
-                    onClick={() => {window.location.replace('https://2c70-2409-4040-d89-2d86-184-c948-9c4-d769.ngrok.io/video/') }}
+                    onClick={() => {window.location.replace('https://053a-2409-4040-d1e-4f2b-98c1-dd1e-4fa6-66c0.ngrok.io/video/') }}
                   />
                   {/* </a> */}
 

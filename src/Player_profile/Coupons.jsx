@@ -30,10 +30,12 @@ const Coupons = () => {
     else {
         Point = (c - (c % 5))/5;
     }
+
+    const Points =20;
     return (
         <div ><Paper elevation={3} style={{ padding: '2%' }}>
-            <h1 >UserName</h1>
-            <h2 style={{ opacity: '.75' }}>Points <img src={coin} width='20'></img> : {Point}</h2>
+            <h1 >Admin</h1>
+            <h2 style={{ opacity: '.75' }}>Points <img src={coin} width='20'></img> : {Points}</h2>
         </Paper>
             <br />
             <Paper elevation={3} style={{ padding: '3%' }}>

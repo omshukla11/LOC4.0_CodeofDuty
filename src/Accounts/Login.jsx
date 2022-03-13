@@ -228,8 +228,8 @@ const Login = () => {
                                                 fullWidth
                                                 variant="contained"
                                                 sx={{
-                                                backgroundColor: "#f2cf07",
-                                                backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
+                                                    backgroundColor: "#f2cf07",
+                                                    backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
                                                 }}
                                                 component={motion.div}
                                                 whileHover={{
@@ -239,8 +239,15 @@ const Login = () => {
                                                     transition: { duration: 0.3 },
                                                 }}
                                                 onClick={(e) => {
-
-                                                    axios.get(url + 'accounts/login/')
+                                                    console.log(e);
+                                                    history.push("/dashboard");
+                                                    var config = {
+                                                        method: 'post',
+                                                        url: url + 'accounts/login/',
+                                                        headers: {},
+                                                        // data: values
+                                                    };
+                                                    axios.post(url + 'accounts/login/')
                                                         .then(function (response) {
                                                             console.log(JSON.stringify(response.data));
                                                             if (response.data.teacher) {
@@ -249,17 +256,17 @@ const Login = () => {
                                                         })
                                                         .catch(function (error) {
                                                             console.log(error);
-                                                            Swal.fire({
-                                                                icon: "error",
-                                                                title: "Invalid",
-                                                                text: "Please try again ",
-                                                                showClass: {
-                                                                    popup: "animate__animated animate__fadeInDown",
-                                                                },
-                                                                hideClass: {
-                                                                    popup: "animate__animated animate__fadeOutUp",
-                                                                },
-                                                            });
+                                                            // Swal.fire({
+                                                            //     icon: "error",
+                                                            //     title: "Invalid",
+                                                            //     text: "Please try again ",
+                                                            //     showClass: {
+                                                            //         popup: "animate__animated animate__fadeInDown",
+                                                            //     },
+                                                            //     hideClass: {
+                                                            //         popup: "animate__animated animate__fadeOutUp",
+                                                            //     },
+                                                            // });
                                                         });
                                                 }
                                                 }
@@ -269,7 +276,7 @@ const Login = () => {
 
                                         </Grid>
                                         <Grid item xs={12} sx={{ fontSize: "1.2rem", fontWeight: "550" }}>
-                                            
+
                                             <Link to='/signup' style={{ textDecoration: "none", color: "#f2cf07" }}> Don't have an account ? Sign Up</Link>
                                         </Grid>
                                         <Grid item xs={12} sx={{ fontSize: "1rem", fontWeight: "500" }}>

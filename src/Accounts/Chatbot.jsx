@@ -171,8 +171,60 @@ class SimpleForm extends Component {
                         {
                             id: 'end-message',
                             message: 'Thanks! Your data was submitted successfully!',
+                            trigger: 'facts',
+                        },
+                        {
+                            id:'facts',
+                            message:'Would you like to know some fun facts ?',
+                            trigger:'facts-data'
+                        },
+                        {
+                            id:'facts-data',
+                            options: [
+                                { value: 'cricket', label: 'Cricket', trigger: 'fact-cricket' },
+                                { value: 'yoga', label: 'Yoga', trigger: 'fact-yoga' },
+                                { value: 'gym', label: 'Gym', trigger: 'fact-gym' },
+                            ],
+                        },
+                        {
+                            id: 'fact-cricket',
+                            message: 'Sunil Gavaskar was out off the first ball of a Test match thrice in his career',
+                            trigger: 'points',
+                        },
+                        {
+                            id: 'fact-yoga',
+                            message: 'Yoga is one of the oldest physical disciplines in the world',
+                            trigger: 'points',
+                        },
+                        {
+                            id: 'fact-gym',
+                            message: 'Working out sharpens your memory.',
+                            trigger: 'points',
+                        },
+                        {
+                            id:'points',
+                            message:'Would you like to know your reward points?',
+                            trigger:'points-data'
+                        },
+                        {
+                            id:'points-data',
+                            options: [
+                                { value: 'yes', label: 'Yes', trigger: 'points-yes' },
+                                { value: 'no', label: 'No', trigger: 'points-no' },
+                            ],
+                        },
+                        {
+                            id:'points-no',
+                            message:'Thank you for your kind interaction !!',
                             end: true,
                         },
+                        {
+                            id:'points-yes',
+                            message:'You have 245 points !!!',
+                            end: true,
+                        }
+
+
                     ]}
                 />
             </ThemeProvider>

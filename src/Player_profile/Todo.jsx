@@ -9,6 +9,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
+import axios from 'axios';
+import { url } from '../url';
+
 
 function not(a, b) {
     return a.filter((value) => b.indexOf(value) === -1);
@@ -21,11 +24,33 @@ function intersection(a, b) {
 function union(a, b) {
     return [...a, ...not(b, a)];
 }
+var config = {
+    method: 'get',
+    url: 'http://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io/gym/Exercise/3/3/',
+    headers: {
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ3Mzc4MjkwLCJpYXQiOjE2NDcxMTkwOTAsImp0aSI6IjU5NjY5ZjE4MTBjMTQ5YmViYjYwMmJlNDNjZGIyMDdmIiwidXNlcl9pZCI6M30.Yn4-mTpvG361XyPvv8HA-Ty-Ro4PA2SfOCMbtLO-ynY'
+    }
+};
 
 export default function Todo() {
+    const [data, setData] = React.useState([])
+    // React.useEffect(() => {
+    //     axios(config)
+    //         .then((x) => {
+    //             x.data.map((i) => {
+    //                 return setData([...data, i.name])
+    //             })
+    //             //    setData(x.data)
+    //         })
+    //         .catch((e) => {
+    //             console.log(e);
+    //         })
+    // }, [])
+
+    console.log(data);
     const [checked, setChecked] = React.useState([]);
-    const [left, setLeft] = React.useState([0, 1, 2, 3]);
-    const [right, setRight] = React.useState([4, 5, 6, 7]);
+    const [left, setLeft] = React.useState(["Boxing Back",'Cricket']);
+    const [right, setRight] = React.useState(["Yoga", 'Gym', 'boxing']);
 
     const leftChecked = intersection(checked, left);
     const rightChecked = intersection(checked, right);
@@ -117,7 +142,7 @@ export default function Todo() {
                                     }}
                                 />
                             </ListItemIcon>
-                            <ListItemText id={labelId} primary={`List item ${value + 1}`} />
+                            <ListItemText id={labelId} primary={`${value}`} />
                         </ListItem>
                     );
                 })}

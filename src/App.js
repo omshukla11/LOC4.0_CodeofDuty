@@ -10,9 +10,8 @@ import { ThemeProvider as chatT } from 'styled-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Contactus from './Accounts/Contactus';
-import Demo from './Accounts/demo';
 import SimpleForm from './Accounts/Chatbot';
-import { Button, Card } from '@mui/material';
+import { AppBar, Button, Card } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import { useEffect, useState } from 'react';
 // import CustomizedDialogs from './chatty';
@@ -51,46 +50,8 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 function MyApp() {
 
-  {/*const { SetCookie, DeleteCookie, hasCookie } = require('../../Utility/CookieManager.js');
-  const CLIENT_ID = '647346603249-ethuif0tbpu3t2vf2r3aofph91odbovu.apps.googleusercontent.com';
 
-  const [user, setUser] = useState({ haslogin: false, accessToken: '' });
 
-  useEffect(() => {
-    const cookieObject = hasCookie();
-    if (cookieObject.haslogin) {
-      setUser({
-        ...cookieObject
-      });
-    }
-  }, []);
-  function login(response) {
-    console.log(response);
-    if (response.wc.access_token) {
-      setUser({
-        ...response.profileObj,
-        haslogin: true,
-        accessToken: response.wc.access_token
-      })
-    }
-    SetCookie({
-      ...response.profileObj,
-      accessToken: response.wc.access_token
-    });
-  }
-
-  function logout(response) {
-    setUser({ haslogin: false, accessToken: '' });
-    DeleteCookie(['accessToken', 'email', 'givenName', 'familyName', 'imageUrl', 'name', 'googleId']);
-  }
-
-  function handleLoginFailure(response) {
-    console.log('Failed to log in')
-  }
-  function handleLogoutFailure(response) {
-    console.log('Failed to log out')
-  }
-*/}
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   useEffect(() => {
@@ -209,6 +170,46 @@ export default function ToggleColorMode() {
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',
   };
+  // import './Component/Utility/CookieManager'
+  const { SetCookie, DeleteCookie, hasCookie } = require('./Component/Utility/CookieManager');
+  const CLIENT_ID = '647346603249-ethuif0tbpu3t2vf2r3aofph91odbovu.apps.googleusercontent.com';
+
+  const [user, setUser] = useState({ haslogin: false, accessToken: '' });
+
+  useEffect(() => {
+    const cookieObject = hasCookie();
+    if (cookieObject.haslogin) {
+      setUser({
+        ...cookieObject
+      });
+    }
+  }, []);
+  function login(response) {
+    console.log(response);
+    if (response.wc.access_token) {
+      setUser({
+        ...response.profileObj,
+        haslogin: true,
+        accessToken: response.wc.access_token
+      })
+    }
+    SetCookie({
+      ...response.profileObj,
+      accessToken: response.wc.access_token
+    });
+  }
+
+  function logout(response) {
+    setUser({ haslogin: false, accessToken: '' });
+    DeleteCookie(['accessToken', 'email', 'givenName', 'familyName', 'imageUrl', 'name', 'googleId']);
+  }
+
+  function handleLoginFailure(response) {
+    console.log('Failed to log in')
+  }
+  function handleLogoutFailure(response) {
+    console.log('Failed to log out')
+  }
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -226,12 +227,6 @@ export default function ToggleColorMode() {
               <Route path="/Signup">
                 <Signup />
               </Route>
-              <Route path="/demo">
-                <Demo />
-              </Route>
-              {/* <Route path='/googlefit'>
-                <GoogleFit/>
-              </Route> */}
               <Route path="/contact us">
                 <NavBar mode={mode} />
 
@@ -241,24 +236,28 @@ export default function ToggleColorMode() {
                 <NavBar mode={mode} />
                 <Events />
               </Route>
-              {/*<Route path='/gfit'>
-                {user.haslogin ?
-                  <GoogleLogout
-                    clientId={CLIENT_ID}
-                    buttonText='Logout'
-                    onLogoutSuccess={logout}
-                    onFailure={handleLogoutFailure}
-                  >
-                  </GoogleLogout> : <GoogleLogin
-                    clientId={CLIENT_ID}
-                    buttonText='Login'
-                    onSuccess={login}
-                    onFailure={handleLoginFailure}
-                    cookiePolicy={'single_host_origin'}
-                    responseType='code,token'
-                    scope={'https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read'}
-                  />
-                }
+              <Route path='/googlefit'>
+                <AppBar >
+
+                  {user.haslogin ?
+                    <GoogleLogout
+                      clientId={CLIENT_ID}
+                      buttonText='Logout'
+                      onLogoutSuccess={logout}
+                      onFailure={handleLogoutFailure}
+                    >
+                    </GoogleLogout> : <GoogleLogin
+                      clientId={CLIENT_ID}
+                      buttonText='Login'
+                      onSuccess={login}
+                      onFailure={handleLoginFailure}
+                      cookiePolicy={'single_host_origin'}
+                      responseType='code,token'
+                      scope={'https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read'}
+                    />
+                  }
+                </AppBar>
+                <Navbar_prof />
                 <Dashboard2 user={user} />
 
               </Route>

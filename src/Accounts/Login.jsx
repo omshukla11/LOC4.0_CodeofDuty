@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import './accounts.css'
 import Button from "@mui/material/Button";
+import { useEffect } from "react";
 import {
     Grid,
     TextField,
@@ -31,6 +32,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import { useFormik } from 'formik';
+import { styled, useTheme } from '@mui/material/styles';
 import * as yup from 'yup';
 import { Link } from "react-router-dom";
 import { FormatAlignLeftSharp } from "@mui/icons-material";
@@ -46,6 +48,7 @@ const validationSchema = yup.object({
         .required('Password is required'),
 
 });
+
 /*function Copyright(props) {
     return (
         <Typography
@@ -86,6 +89,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Login = () => {
+    const onTop = () => {
+        window.scrollTo(0, 0);
+    };
+    useEffect(() => {
+        onTop();
+    }, []);
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -118,16 +127,34 @@ const Login = () => {
     });
     const [passwordShow, setpassword] = React.useState(false);
     const [passwordShow2, setpassword2] = React.useState(false);
+    // const TextField = styled(TextField)({
+    //     '& label.Mui-focused': {
+    //         color: '#f2cf07',
+    //     },
+    //     '& .MuiInput-underline:after': {
+    //         borderBottomColor: '#f2cf07',
+    //     },
+    //     '& .MuiOutlinedInput-root': {
+    //         '&.Mui-focused fieldset': {
+    //             borderColor: '#f2cf07',
+    //             borderWidth: '3px',
+    //         },
+    //         '&:hover fieldset': {
+    //             // borderColor: 'green',
+    //         },
+
+    //     },
+    // });
     return (
         <div>
             <Card>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
-                    <img src={login} alt="signup" style={{width:"100%" , height:"100%"}}/>
+                        <img src={login} alt="signup" style={{ width: "100%", height: "100%" }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container>
-                            <Grid item xs={12} style={{ padding: "5vh" , height:"87vh"}}>
+                            <Grid item xs={12} style={{ padding: "5vh", height: "87vh" }}>
                                 <form onSubmit={formik.handleSubmit} autoComplete="off" style={{ width: "100%" }}>
                                     <Grid container spacing={3}>
                                         <Grid item xs={12} sx={{ textAlign: "left", fontSize: "1.6rem", fontWeight: "750" }}>
@@ -146,6 +173,10 @@ const Login = () => {
                                                 onChange={formik.handleChange}
                                                 error={formik.touched.email && Boolean(formik.errors.email)}
                                                 helperText={formik.touched.email && formik.errors.email}
+                                                InputLabelProps={{ style: { fontSize: 20 } }}
+                                                InputProps={{
+                                                    style: { fontSize: 25 }
+                                                }}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12}>
@@ -160,7 +191,10 @@ const Login = () => {
                                                     onChange={formik.handleChange}
                                                     error={formik.touched.password && Boolean(formik.errors.password)}
                                                     helperText={formik.touched.password && formik.errors.password}
+                                                    InputLabelProps={{ style: { fontSize: 20 } }}
+
                                                     InputProps={{
+                                                        style: { fontSize: 25 },
                                                         endAdornment: (
                                                             <InputAdornment position="end">
                                                                 <IconButton
@@ -321,7 +355,7 @@ const Login = () => {
         }),
     }));
 
-    const ValidationTextField = styled(TextField)({
+    const TextField = styled(TextField)({
         '& label.Mui-focused': {
             color: '#fc5296',
         },
@@ -479,7 +513,7 @@ const Login = () => {
                                         noValidate
                                         sx={{ mt: 1 }}
                                     >
-                                        <ValidationTextField
+                                        <TextField
                                             id="outlined-basic"
                                             label="Email"
                                             color="primary"
@@ -518,7 +552,7 @@ const Login = () => {
                                             title="Minimum eight characters, at least one letter, one number and one special character are required"
                                             arrow
                                         >
-                                            <ValidationTextField
+                                            <TextField
                                                 label="password"
                                                 color="primary"
                                                 type={passwordShow ? "text" : "password"}

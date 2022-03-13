@@ -35,6 +35,7 @@ import {
     MenuItem,
     FormHelperText,
 } from "@mui/material";
+import { useEffect } from "react";
 import axios from "axios";
 import EmailIcon from "@mui/icons-material/Email";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -98,6 +99,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Signup = () => {
+    const onTop = () => {
+        window.scrollTo(0, 0);
+    };
+    useEffect(() => {
+        onTop();
+    }, []);
     const formik = useFormik({
         initialValues: {
             firstname: '',
@@ -118,7 +125,7 @@ const Signup = () => {
 
             var config = {
                 method: 'post',
-                url: url+'accounts/signup/',
+                url: url + 'accounts/signup/',
                 headers: {},
                 data: data
             };
@@ -272,9 +279,9 @@ const Signup = () => {
     return (
         <div>
             <Card>
-                <Grid container spacing={3} style={{overflow:"hidden"}}>
+                <Grid container spacing={3} style={{ overflow: "hidden" }}>
                     <Grid item xs={12} md={6}>
-                        <img src={signup} alt="signup" style={{width:"100%" , height:"100%"}}/>
+                        <img src={signup} alt="signup" style={{ width: "100%", height: "100%" }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container>

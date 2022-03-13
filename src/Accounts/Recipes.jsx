@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 
 
 const Recipes = () => {
-    const id = 'https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io/diet/all-recipes/'
+    const id = 'https://0b74-2402-3a80-1397-51a3-dd83-3db1-f045-9f9d.ngrok.io/diet/all-recipes/'
     const [arr, setarr] = useState([]);
     useEffect(() => {
-        axios.get('https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io/diet/all-recipes/')
+        axios.get('https://0b74-2402-3a80-1397-51a3-dd83-3db1-f045-9f9d.ngrok.io/diet/all-recipes/')
             .then((res) => {
                 console.log(res.data);
                 setarr(res.data);

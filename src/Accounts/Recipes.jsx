@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { url } from '../url'
-import { Grid ,Card} from '@mui/material'
+import { Grid, Card } from '@mui/material'
 import { Paper } from '@mui/material'
 import { motion } from "framer-motion";
 
 
 const Recipes = () => {
-
+    const id = 'https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io/diet/all-recipes/'
     const [arr, setarr] = useState([]);
     useEffect(() => {
-        axios.get(url + '/diet/all-recipes/')
+        axios.get('https://4001-2409-4040-d89-2d86-f8fc-de43-c17d-e7ed.ngrok.io/diet/all-recipes/')
             .then((res) => {
                 console.log(res.data);
                 setarr(res.data);
@@ -20,36 +20,41 @@ const Recipes = () => {
             })
     })
     return (
-        <Card sx={{boxShadow:"none"}}>
-        <Grid style={{ padding: "20px" }} container spacing={2}>
-            <Grid item xs={12} sx={{ fontSize: "1.6rem", fontWeight: "750" }}>
-                Recipes
-            </Grid>
-            <Grid item xs={12}>
-                
-            </Grid>
-            {arr.map((x, index) => {
-                return (
-                    <Grid item sm={6} md={3}>
-                        <Paper
-                            style={{ paddingBottom: "60px" }}
-                            whileHover={{
-                                scale: 1.05,
-                            }}
-                            component={motion.div}
-                            elevation={3}
-                        >
-                            <Card style={{boxShadow:"none"}}>
-                            <div class="box box-2">
-                            <div class="first">
-                            </div>
-                            <div class="second">
-                            <p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
-                            <p><a href="#">Find out more</a></p>
-                            </div>
-                            </div>
-                        </Card>
-                           {/*} <center>
+        <Card sx={{ boxShadow: "none" }}>
+            <Grid style={{ padding: "20px" }} container spacing={2}>
+                <Grid item xs={12} sx={{ fontSize: "1.6rem", fontWeight: "750" }}>
+                    Recipes
+                </Grid>
+                <Grid item xs={12}>
+
+                </Grid>
+                {arr.map((x, index) => {
+                    return (
+                        <Grid item sm={6} md={3}>
+                            <Paper
+                                // style={{ paddingBottom: "60px" }}
+                                whileHover={{
+                                    scale: 1.05,
+                                }}
+                                component={motion.div}
+                                elevation={3}
+                                style={{ backgroundImage: `url(${id+ x.image})`,paddingBottom: "60px" }}
+                            >
+                                <Card style={{ boxShadow: "none" }}>
+                                    <div class="box box-2">
+                                        <div class="first">
+                                            <h1>
+                                                {x.recipe_name}
+
+                                            </h1>
+                                        </div>
+                                        <div class="second">
+                                            <p>{x.recipe_description}</p>
+                                            <p><a href="#">Find out more</a></p>
+                                        </div>
+                                    </div>
+                                </Card>
+                                {/*} <center>
                                 <img
                                     width="150"
                                     height="150"
@@ -86,12 +91,12 @@ const Recipes = () => {
           <ShoppingCart />{" "}
         </Badge>
         <Badge color="primary" badgeContent={4}> */}
-                            {/* <span>Already in cart:{x.products_ordered}</span> */}
-                        </Paper>
-                    </Grid>
-                );
-            })}
-        </Grid>
+                                {/* <span>Already in cart:{x.products_ordered}</span> */}
+                            </Paper>
+                        </Grid>
+                    );
+                })}
+            </Grid>
         </Card>
     )
 }

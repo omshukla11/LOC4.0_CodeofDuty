@@ -273,10 +273,12 @@ export default function ToggleColorMode() {
                 <Feedback />
               </Route>
               <Route path='/recipes'>
+                <NavBar mode={mode} />
+
                 <Recipes />
               </Route>
               <Route path='/profile'>
-              <NavBar mode={mode} />
+                <NavBar mode={mode} />
 
                 <Navbar_prof />
 

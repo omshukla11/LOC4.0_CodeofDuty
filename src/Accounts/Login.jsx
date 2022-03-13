@@ -36,6 +36,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import * as yup from 'yup';
 import { Link } from "react-router-dom";
 import { FormatAlignLeftSharp } from "@mui/icons-material";
+import { url } from '../url'
 const validationSchema = yup.object({
     email: yup
         .string('Enter your Email')
@@ -219,15 +220,86 @@ const Login = () => {
                                         </Grid>
                                         <Grid item xs={12} sm={12} md={12}>
                                             <Button variant="contained" fullWidth type="submit"
+                                                component={motion.div}
+                                                whileHover={{
+                                                    scale: 1.08,
+                                                    textShadow: "0 0 8px rgb(255,255,255)",
+                                                    transition: { duration: 0.3 },
+                                                }}
                                                 sx={{
                                                     backgroundColor: "#f2cf07",
                                                     backgroundImage: "linear-gradient(315deg, #f2cf07 0%, #55d284 74%)", fontSize: "1.2rem", fontWeight: "600"
-                                                }}>
+                                                }}
+                                                >
                                                 Submit
                                             </Button>
                                         </Grid>
                                         <Grid item xs={12} sx={{ fontSize: "1.2rem", fontWeight: "550" }}>
                                             <Link to='/signup' style={{ textDecoration: "none", color: "#f2cf07" }}> Don't have an account ? Sign Up</Link>
+                                        </Grid>
+                                        <Grid item xs={12} sx={{ fontSize: "1rem", fontWeight: "500" }}>
+                                            <Button
+                                                color="success"
+                                                variant="outlined"
+                                                fullWidth
+
+                                                style={{ marginBottom: "3vh" }}
+                                                onClick={() => {
+                                                    console.log("hiii")
+                                                    Swal.fire({
+                                                        title: "Input your email ",
+                                                        input: "text",
+                                                        inputLabel: "Email",
+                                                        inputValidator: async (num) => {
+                                                            console.log(num);
+                                                            if (!num) {
+                                                                return "You need to write something!";
+                                                            } else if (num) {
+                                                                var FormData = require("form-data");
+                                                                var mail = new FormData();
+                                                                mail.append("email", num);
+                                                                var config2 = {
+                                                                    method: "post",
+                                                                    url: url + 'accounts/request-reset-email/',
+                                                                    data: mail,
+                                                                };
+                                                                axios(config2)
+                                                                    .then(function (response) {
+                                                                        console.log(JSON.stringify(response.data));
+                                                                        Swal.fire({
+                                                                            title: "We have sent a link to your mail",
+                                                                            icon: "success",
+                                                                        });
+                                                                        <Link to="/dashboard"/>
+                                                                    })
+                                                                    .catch((e) => {
+                                                                        Swal.fire({
+                                                                            title: "invalid",
+                                                                            icon: "error",
+                                                                        });
+                                                                    });
+                                                            }
+                                                        },
+                                                    });
+                                                }}
+                                                component={motion.div}
+                                                whileHover={{
+                                                    scale: 1.08,
+                                                    textShadow: "0 0 8px rgb(255,255,255)",
+                                                    transition: { duration: 0.3 },
+                                                }}
+                                            >
+                                                <Link
+                                                    to="#"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                        fontSize: ".8rem",
+                                                        color: "green",
+                                                    }}
+                                                >
+                                                    Forgot Password ?
+                                                </Link>
+                                            </Button>
                                         </Grid>
                                     </Grid>
                                 </form>
@@ -236,10 +308,7 @@ const Login = () => {
                     </Grid>
                 </Grid>
             </Card>
-        </div>
-    )
-}
-
+            
 {/*// definition
     const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
@@ -764,6 +833,10 @@ const Login = () => {
             </Grid>
 
                                                     </ThemeProvider>*/}
+        </div>
+    )
+}
+
 
 
 export default Login;
